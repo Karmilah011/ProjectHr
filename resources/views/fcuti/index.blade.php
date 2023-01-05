@@ -43,5 +43,5 @@
                   </table>
                 </div>
                 @include('fcuti.create')
-              </div>
+    </div>
 @endsection

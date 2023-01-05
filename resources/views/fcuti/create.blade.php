@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for=""></label>
-                                  <label for="nameSmall" class="form-label">Jenis Cuti</label>
+                                  <label for="jeniscuti" class="form-label">Jenis Cuti</label>
                                   <select id="defaultSelect" class="form-select" placeholder="">
                                     <option value="1">Liburan</option>
                                     <option value="2">Sakit</option>
@@ -25,36 +25,36 @@
                               <div class="row">
                                 <div class="col mb-3">
                                     <label for=""></label>
-                                  <label for="nameSmall" class="form-label">Sisa Cuti</label>
-                                  <input type="text" id="nameSmall" class="form-control" placeholder=""/>
+                                  <label for="sisacuti" class="form-label">Sisa Cuti</label>
+                                  <input type="text" id="sisacuti" class="form-control" placeholder=""/>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col mb-3">
                                     <label for=""></label>
-                                  <label for="nameSmall" class="form-label">Alasan Cuti</label>
-                                  <input type="text" id="nameSmall" class="form-control"/>
+                                  <label for="alsncuti" class="form-label">Alasan Cuti</label>
+                                  <input type="text" id="alsncuti" class="form-control"/>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col mb-3">
                                     <label for=""></label>
-                                  <label for="nameSmall" class="form-label">Periode Cuti</label>
-                                  <input type="Date" id="nameSmall" class="form-control"/>
+                                  <label for="periodecuti" class="form-label">Periode Cuti</label>
+                                  <input type="Date" id="periodecuti" class="form-control"/>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col mb-3">
                                     <label for=""></label>
-                                  <label for="nameSmall" class="form-label">Jumlah Hari</label>
-                                  <input type="text" id="nameSmall" class="form-control"/>
+                                  <label for="jhari" class="form-label">Jumlah Hari</label>
+                                  <input type="text" id="jhari" class="form-control"/>
                                 </div>
                               </div>
                               <div class="row">
                                 <div class="col mb-3">
                                     <label for=""></label>
-                                  <label for="nameSmall" class="form-label">Atasan</label>
-                                  <input type="text" id="nameSmall" class="form-control"/>
+                                  <label for="atsn" class="form-label">Atasan</label>
+                                  <input type="text" id="atsn" class="form-control"/>
                                 </div>
                               </div>
                             </div>

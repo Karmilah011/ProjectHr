@@ -38,6 +38,11 @@ Route::group(['middleware' => 'auth'],function(){
 
     //route untuk fcuti
     Route::get('/fcuti', 'FormCutiController@index');
+    Route::get('/fcuti/create', 'FormCutiController@create');
+    Route::post('/fcuti/store', 'FormCutiController@store');
+    Route::get('/fcuti/edit/{id}', 'FormCutiController@edit');
+    Route::put('/fcuti/update/{id}', 'FormCutiController@update');
+    Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
 
     //route untuk karyawan
     Route::get('/karyawan', 'KaryawanController@index');
