@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Form_cuti;
+use App\Approval;
 use Illuminate\Http\Request;
 
-class FormCutiController extends Controller
+class ApprovalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class FormCutiController extends Controller
      */
     public function index()
     {
-        $fcuti = Form_cuti::all();
-        return view('fcuti.index', compact ('fcuti'));
+     return view('approval.index');   
     }
 
     /**
@@ -25,7 +24,7 @@ class FormCutiController extends Controller
      */
     public function create()
     {
-        return view('fcuti.create');
+        //
     }
 
     /**
@@ -36,17 +35,16 @@ class FormCutiController extends Controller
      */
     public function store(Request $request)
     {
-        Form_cuti::create($request->all());
-        return redirect('/fcuti');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Form_cuti  $form_cuti
+     * @param  \App\Approval  $approval
      * @return \Illuminate\Http\Response
      */
-    public function show(Form_cuti $form_cuti)
+    public function show(Approval $approval)
     {
         //
     }
@@ -54,38 +52,34 @@ class FormCutiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Form_cuti  $form_cuti
+     * @param  \App\Approval  $approval
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Approval $approval)
     {
-        $fcuti = Form_cuti::find($id)->first();
-        return view('fcuti.edit', compact('fcuti'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Form_cuti  $form_cuti
+     * @param  \App\Approval  $approval
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Approval $approval)
     {
-        $fcuti = Form_cuti::find($id);
-        $fcuti->update($request->all());
-        return redirect('/fcuti')->with(['success' => 'Data Cuti Diperbaharui!']);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Form_cuti  $form_cuti
+     * @param  \App\Approval  $approval
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Approval $approval)
     {
-        Form_cuti::destroy($id);
-        return redirect('/fcuti');
+        //
     }
 }

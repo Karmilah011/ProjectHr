@@ -57,7 +57,7 @@ class DepartemenController extends Controller
      * @param  \App\Departemen  $departemen
      * @return \Illuminate\Http\Response
      */
-    public function edit(Departemen $departemen)
+    public function edit($id)
     {
         $dptm = Departemen::find($id)->first();
         return view('departemen.edit', compact('dptm'));
@@ -70,7 +70,7 @@ class DepartemenController extends Controller
      * @param  \App\Departemen  $departemen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Departemen $departemen)
+    public function update(Request $request, $id)
     {
         $dptm = Departemen::find($id);
         $dptm->update($request->all());
@@ -83,7 +83,7 @@ class DepartemenController extends Controller
      * @param  \App\Departemen  $departemen
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Departemen $departemen)
+    public function destroy($id)
     {
         Departemen::destroy($id);
         return redirect('/departemen');

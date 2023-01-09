@@ -16,7 +16,7 @@ class CreateFormCutisTable extends Migration
         Schema::create('form_cutis', function (Blueprint $table) {
             $table->id();
             $table->string('no_karyawan');
-            $table->string('jenicuti');
+            $table->string('jeniscuti');
             $table->string('sisacuti');
             $table->string('alsncuti');
             $table->string('periodecuti');
