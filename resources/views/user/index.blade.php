@@ -7,7 +7,7 @@
                 </button>
                 </div>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
+                  <table class="table table-primary">
                     <thead>
                       <tr>
                         <th>No</th>

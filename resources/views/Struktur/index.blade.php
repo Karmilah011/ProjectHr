@@ -1,15 +1,18 @@
 @extends('layouts.master')
 @section('content')
-<div class="card">
+    <div class="card">
+                <div class="d-flex justify-content-end pt-2" style="padding-right: 25px">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#smallModal">
+                <i class='bx bxs-plus-circle'></i> Add Organisasi
+                </button>
+                </div>
                 <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead class="table table-primary">
+                  <table class="table table-primary">
+                    <thead>
                       <tr>
                         <th>No</th>
-                        <th>Jenis Cuti</th>
-                        <th>Nama Karyawan</th>
-                        <th>Tgl Mulai</th>
-                        <th>Tgl Selesai</th>
+                        <th>Nama Organisasi</th>
+                        <th>Parent</th>
                         <th>Status</th>
                         <th>Actions</th>
                       </tr>
@@ -17,11 +20,9 @@
                     <tbody class="table table-info table-border-bottom-0">
                       <tr>
                         <td>1</td>
-                        <td>Cuti Tahunan</td>
-                        <td>Pieter Kurnaidi</td>
-                        <td>15 Dec 2023</td>
-                        <td>16 Dec 2023</td>
-                        <td><span class="badge bg-label-primary me-1">Approved</span></td>
+                        <td>MD</td>
+                        <td>-</td>
+                        <td><span class="badge bg-label-primary me-1">Active</span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -33,14 +34,12 @@
                             </div>
                           </div>
                         </td>
-                      </tr>
-                      <tr>
+                        </tr>
+                        <tr>
                         <td>2</td>
-                        <td>Cuti Tahunan</td>
-                        <td>Adimarta</td>
-                        <td>1 Dec 2022</td>
-                        <td>5 Dec 2022</td>
-                        <td><span class="badge bg-label-info me-1">Menunggu Approval</span></td>
+                        <td>Commerce and marketing</td>
+                        <td>MD</td>
+                        <td><span class="badge bg-label-primary me-1">Active</span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -55,7 +54,23 @@
                       </tr>
                     </tbody>
                   </table>
+                  <br>
+                  <div class="pagination justify-content-center">
+                <nav aria-label="Page navigation">
+                <ul class="pagination pagination-round">
+                <li class="page-item active">
+                  <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">3</a>
+                </li>
+              </ul>
+            </nav>
                 </div>
-                @include('approval.create')
+                </div>
+                @include('struktur.create')
     </div>
 @endsection

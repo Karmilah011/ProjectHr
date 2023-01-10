@@ -10,4 +10,9 @@ class ReportController extends Controller
     {
         return view('report.report');
     }
+
+    public function reportadmin()
+    {
+        return view('report.reportadmin');
+    }
 }

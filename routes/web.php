@@ -24,7 +24,9 @@ Route::get('/logout', 'AuthController@logout');
 
 Route::group(['middleware' => 'auth'],function(){
     Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
+    Route::get('/dashboardadmin','DashboardController@dashboardadmin')->name('dashboardadmin');
     Route::get('/report','ReportController@report')->name('report.index');
+    Route::get('/reportadmin','ReportController@reportadmin')->name('reportadmin.index');
     //route untuk user
     Route::get('/user', 'UserController@index')->name('user.index');
 
@@ -68,5 +70,13 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/approval/edit/{id}', 'ApprovalController@edit');
     Route::put('/approval/update/{id}', 'ApprovalController@update');
     Route::get('/approval/hapus/{id}', 'ApprovalController@destroy');
+
+    //route untuk struktur
+    Route::get('/struktur', 'StrukturController@index')->name('struktur.index');
+    Route::get('/struktur/create', 'StrukturController@create');
+    Route::post('/struktur/store', 'StrukturController@store');
+    Route::get('/struktur/edit/{id}', 'StrukturController@edit');
+    Route::put('/struktur/update/{id}', 'StrukturController@update');
+    Route::get('/struktur/hapus/{id}', 'StrukturController@destroy');
 
 });
