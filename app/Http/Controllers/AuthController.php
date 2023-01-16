@@ -16,7 +16,13 @@ class AuthController extends Controller
      public function postlogin(Request $request)
      {
       Auth::attempt($request->only('email','password',));
-      return redirect('/dashboard');
+      if(auth()->user()->role == 'admin'){
+         return redirect('/dashboard-admin');
+      }elseif(auth()->user()->role == 'pimpinan'){
+         return redirect('/dashboard-pimpinan');
+      }else{
+         return redirect('/dashboard');
+      }
      }
      public function logout()
      {

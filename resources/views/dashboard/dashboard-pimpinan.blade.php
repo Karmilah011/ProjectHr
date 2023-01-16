@@ -1,6 +1,16 @@
 @extends('layouts.master')
 @section('content')
-<p><?php echo "Tahun Kerja : " . (int)date('Y'); ?></p>
+  <p><?php echo "Tahun Kerja : " . (int)date('Y'); ?></p>
+                <div class="row">
+                 <div class="col-md-6 col-xl-4">
+                  <div class="card bg-secondary text-white mb-3">
+                    <div class="card-header">Approval Request</div>
+                    <div class="card-body">
+                      <h5 class="card-title text-white">2 Task</h5>
+                    </div>
+                  </div>
+                </div>
+                </div>
                 <div class="row">
                 <div class="col-md-6 col-xl-4">
                   <div class="card bg-primary text-white mb-3">

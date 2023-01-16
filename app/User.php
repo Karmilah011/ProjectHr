@@ -19,6 +19,16 @@ class User extends Authenticatable
         'name', 'email', 'password','role','no_karyawan'
     ];
 
+    public function hasRole($role)
+    {
+    // check param $role dengan field usertype
+    if ($role == $this->usertype) {
+        return true;
+    }
+    return false;
+    }
+
+
     /**
      * The attributes that should be hidden for arrays.
      *

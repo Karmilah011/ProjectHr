@@ -1,15 +1,15 @@
 @extends('layouts.master')
 @section('content')
-  <p>Tahun Kerja : 2022</p>
-  <div class="col-md-6 col-xl-4">
+<p><?php echo "Tahun Kerja : " . (int)date('Y'); ?></p>
+                <div class="row">
+                <div class="col-md-6 col-xl-4">
                   <div class="card bg-primary text-white mb-3">
-                    <div class="card-header">Total Pengajuan Cuti Seluruh karyawan</div>
+                    <div class="card-header">Total Pengajuan <br> Cuti Seluruh karyawan</div>
                     <div class="card-body">
                       <h5 class="card-title text-white">50</h5>
                     </div>
                   </div>
                 </div>
-                <div class="row">
                 <div class="col-md-6 col-xl-4">
                   <div class="card bg-danger text-white mb-3">
                     <div class="card-header">Total Cuti <br> Approved Seluruh Karyawan</div>

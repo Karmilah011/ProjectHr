@@ -10,10 +10,13 @@ class DashboardController extends Controller
     {
         return view('dashboard.dashboard');
     }
-
-    public function dashboardadmin()
+    public function dashboardPimpinan()
     {
-        return view('dashboard.dashboardadmin');
+        return view('dashboard.dashboard-pimpinan');
+    }
+    public function dashboardAdmin()
+    {
+        return view('dashboard.dashboard-admin');
     }
 }
 
