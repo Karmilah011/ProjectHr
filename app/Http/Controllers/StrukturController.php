@@ -83,7 +83,7 @@ class StrukturController extends Controller
      * @param  \App\Struktur  $struktur
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Struktur $struktur)
+    public function destroy($id)
     {
         Struktur::destroy($id);
         return redirect('/struktur');

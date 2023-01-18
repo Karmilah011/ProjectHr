@@ -34,8 +34,8 @@
                 <div data-i18n="Account Settings">Settings</div>
               </a>
               <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="pages-account-settings-account.html" class="menu-link">
+                <li class="menu-item @if(Request::url() == route('struktur.index')) active @endif" id="side-struktur">
+                  <a href="/struktur" class="menu-link">
                     <div data-i18n="Account">Struktur Organisasi</div>
                   </a>
                 </li>
