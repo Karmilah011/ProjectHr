@@ -16,6 +16,7 @@ class CreateStruktursTable extends Migration
         Schema::create('strukturs', function (Blueprint $table) {
             $table->id();
             $table->string('namaorganisasi');
+            $table->string('deskorganisasi');
             $table->string('parent');
             $table->string('status');
             $table->timestamps();

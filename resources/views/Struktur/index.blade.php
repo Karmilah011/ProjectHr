@@ -6,11 +6,6 @@
                 <i class='bx bxs-plus-circle'></i> Add Organisasi
                 </button>
                 </div>
-                <div class="d-flex justify-content-end pt-2" style="padding-right: 25px">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#smallModal">
-                <i class= ></i> Org Chart
-                </button>
-                </div>
                 <div class="table-responsive text-nowrap">
                   <table class="table table-hover">
                     <thead>

@@ -14,22 +14,31 @@
                     <thead style="background-color: #219ebc;">
                       <tr style="color: #f1faee;">
                         <th>No</th>
+                        <th>No Karyawan</th>
                         <th>Jenis Cuti</th>
+                        <th>Sisa Cuti</th>
                         <th>Alasan Cuti</th>
-                        <th>Tgl Mulai</th>
-                        <th>Tgl Selesai</th>
-                        <th>Status</th>
+                        <th>Periode Cuti</th>
+                        <th>Jumlah Hari</th>
+                        <th>Atasan</th>
+                        <th>Status HRD</th>
+                        <th>status Pimpinan</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
+                    @foreach($fcuti as $no => $value)
                     <tbody class="table-border-bottom-0">
                       <tr>
-                        <td>1</td>
-                        <td>Cuti Tahunan</td>
-                        <td>Liburan</td>
-                        <td>1 January 2023</td>
-                        <td>9 January 2023</td>
-                        <td><span class="badge bg-label-info me-1">Menunggu Aproval</span></td>
+                        <td>{{$no+1}}</td>
+                        <td>{{$value->no_karyawan}}</td>
+                        <td>{{$value->jeniscuti}}</td>
+                        <td>{{$value->sisacuti}} Hari</td>
+                        <td>{{$value->alsncuti}}</td>
+                        <td>{{$value->periodecuti}}</td>
+                        <td>{{$value->jhari}} Hari</td>
+                        <td>{{$value->atsn}}</td>
+                        <td><span class="badge {{ ($value->status_hrd == '1') ? 'bg-label-success' : 'bg-label-danger' }}">{{ ($value->status_hrd == '1') ? 'Approved' : 'Ditolak' }}</span></td>
+                        <td><span class="badge {{ ($value->status_hrd == '1') ? 'bg-label-danger' : 'bg-label-success' }}">{{ ($value->status_pim == '1') ? 'Approved' : 'Ditolak' }}</span></td>
                         <td>
                           <button type="button" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#basicModal">
                           <i class='bx bx-folder-open' style='color:#ffffff' ></i>
@@ -128,21 +137,41 @@
                           </div>
                           @else(Auth()->user()->role == 'admin' || 'karyawan')
                           <button type="button" class="btn btn-icon btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                          <i class='bx bx-check'></i>
-                          </button>
-                          <button type="button" class="btn btn-icon btn-danger" data-bs-toggle="modal" data-bs-target="#basicModal">
+                          <i class='bx bxs-pencil'></i>
+                        </button>
+                          <a href="#" class="btn btn-icon btn-danger delete" data-id="{{$value->id}}">
                           <i class='bx bx-trash'></i>
-                          </button>
+                          </a>
                           @endif
                         </td>
                         </tr>
                     </tbody>
+                    @endforeach
                   </table>
                 </div>
                 @include('fcuti.create')
    </div>
 @endsection
 @section('script')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+  $('.delete').click(function() {
+    var fcutiid = $(this).attr('data-id');
+      swal({
+            title: "Apakah anda yakin ingin membatalkan pengajuan cuti ini?",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+              window.location = "/fcuti/hapus/"+fcutiid+""
+              swal("Pengajuan cuti anda telah dibatalkan!", {
+                icon: "success",
+              });
+            }
+     });
+    });
+</script>
 
   <script>
 

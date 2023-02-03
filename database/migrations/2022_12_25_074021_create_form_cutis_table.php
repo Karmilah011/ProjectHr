@@ -22,8 +22,8 @@ class CreateFormCutisTable extends Migration
             $table->string('periodecuti');
             $table->string('jhari');
             $table->string('atsn');
-            $table->string('status_hrd');
-            $table->string('status_pim');
+            $table->integer('status_hrd');
+            $table->integer('status_pim');
             $table->timestamps();
         });
     }
