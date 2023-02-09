@@ -18,15 +18,19 @@
                                     </select>
                                   </div>
                                 </div>
+                                <div class="row">
+                                <div class="col mb-0">
+                                    <label for="emailBasic" class="form-label">Alasan Cuti</label>
+                                    <textarea name="alsncuti" id="" cols="15" rows="5" class="form-control" placeholder=""></textarea>
+                                  </div>
+                                </div>
+
                                 <div class="row g-2" id="cutiWrapper">
                                   <div class="col mb-0">
                                     <label for="emailBasic" class="form-label">Sisa Hari</label>
                                     <input name="scuti" type="text" id="emailBasic" class="form-control" placeholder="">
                                   </div>
-                                  <div class="col mb-0">
-                                    <label for="emailBasic" class="form-label">Alasan Cuti</label>
-                                    <textarea name="alsncuti" id="" cols="15" rows="5" class="form-control" placeholder=""></textarea>
-                                  </div>
+                                  
                                   <div class="col mb-0">
                                     <label for="dobBasic" class="form-label">Jumlah Hari</label>
                                     <input name="jhari" type="text" id="dobBasic" class="form-control" placeholder="">
@@ -37,10 +41,7 @@
                                   </div>
                                 </div>
                                 <div class="row g-2" id="sakitWrapper">
-                                <div class="col mb-0">
-                                    <label for="emailBasic" class="form-label">Alasan Cuti</label>
-                                    <textarea name="alsncuti" id="" cols="15" rows="5" class="form-control" placeholder=""></textarea>
-                                  </div>
+                                  
                                   <div class="col mb-0">
                                     <label for="dobBasic" class="form-label">Jumlah Sakit</label>
                                     <input name="jhari" type="text" id="dobBasic" class="form-control" placeholder="">
@@ -50,15 +51,13 @@
                                     <input type="file" id="dobBasic" class="form-control" placeholder="">
                                   </div>
                                 </div>
+
                                 <div class="row g-2" id="melahirkanWrapper">
                                 <div class="col mb-0">
                                     <label for="dobBasic" class="form-label">Sisa Cuti</label>
                                     <input name="scuti" type="text" id="dobBasic" class="form-control" placeholder="">
                                   </div>
-                                <div class="col mb-0">
-                                    <label for="emailBasic" class="form-label">Alasan Cuti</label>
-                                    <textarea name="alsncuti" id="" cols="15" rows="5" class="form-control" placeholder=""></textarea>
-                                  </div>
+        
                                   <div class="col mb-0">
                                     <label for="dobBasic" class="form-label">Jumlah Hari</label>
                                     <input name="jhari" type="text" id="dobBasic" class="form-control" placeholder="">

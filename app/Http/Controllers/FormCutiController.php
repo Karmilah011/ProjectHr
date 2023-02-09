@@ -36,12 +36,15 @@ class FormCutiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        Form_cuti::create($request->all());
-        $post->created_by = Auth::user()->id;
-        $post->updated_by = Auth::user()->id;
-        $post->status_pim = 0;
-        $post->save();
+    {        
+        $create = Form_cuti::create($request->all());
+        $find = Form_cuti::find($create->id);
+        // var_dump($create);
+        // dd($find);
+        $find->status_pim = 0;
+        $find->created_at = time();
+        $find->save();
+
         return redirect('/fcuti');
     }
 

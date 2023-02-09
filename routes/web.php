@@ -22,10 +22,8 @@ Route::get('/forgot-password','AuthController@forgot');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
 
-Route::group(['middleware' => 'auth', 'checkRole: admin'],function(){
+Route::group(['middleware' => ['auth', 'checkRole:admin']],function(){
     Route::get('/dashboard-admin','DashboardController@dashboardAdmin')->name('dashboard.dashboard-admin');
-    Route::get('/report','ReportController@report')->name('report.index');
-    Route::get('/reportadmin','ReportController@reportadmin')->name('reportadmin.index');
 
     //route untuk user
     Route::get('/user', 'UserController@index')->name('user.index');
@@ -67,12 +65,9 @@ Route::group(['middleware' => 'auth', 'checkRole: admin'],function(){
     Route::get('/struktur/hapus/{id}', 'StrukturController@destroy');
 });
 
-Route::group(['middleware' => 'auth', 'checkRole: pimpinan'],function(){
+Route::group(['middleware' => ['auth', 'checkRole:pimpinan']],function(){
     Route::get('/dashboard-pimpinan','DashboardController@dashboardPimpinan')->name('dashboard.dashboard-pimpinan');
-    Route::get('/report','ReportController@report')->name('report.index');
-    Route::get('/reportadmin','ReportController@reportadmin')->name('reportadmin.index');
     //route untuk user
-    Route::get('/user', 'UserController@index')->name('user.index');
 
     //route untuk fcuti
     Route::get('/fcuti', 'FormCutiController@index')->name('fcuti.index');
@@ -116,12 +111,8 @@ Route::group(['middleware' => 'auth', 'checkRole: pimpinan'],function(){
     Route::get('/struktur/hapus/{id}', 'StrukturController@destroy');
 });
 
-Route::group(['middleware' => 'auth', 'checkRole: karyawan'],function(){
+Route::group(['middleware' => ['auth', 'checkRole:karyawan']],function(){
     Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
-    Route::get('/report','ReportController@report')->name('report.index');
-    Route::get('/reportadmin','ReportController@reportadmin')->name('reportadmin.index');
-    //route untuk user
-    Route::get('/user', 'UserController@index')->name('user.index');
 
     //route untuk fcuti
     Route::get('/fcuti', 'FormCutiController@index')->name('fcuti.index');
@@ -155,4 +146,8 @@ Route::group(['middleware' => 'auth', 'checkRole: karyawan'],function(){
     Route::put('/struktur/update/{id}', 'StrukturController@update');
     Route::get('/struktur/hapus/{id}', 'StrukturController@destroy');
 
+});
+
+Route::group(['middleware' => ['auth']],function(){
+    Route::get('/report','ReportController@report')->name('report.index');
 });
