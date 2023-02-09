@@ -150,4 +150,6 @@ Route::group(['middleware' => ['auth', 'checkRole:karyawan']],function(){
 
 Route::group(['middleware' => ['auth']],function(){
     Route::get('/report','ReportController@report')->name('report.index');
+    // Route::get('/report/test','ReportController@report')->name('report.index');
+
 });
