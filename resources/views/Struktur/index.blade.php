@@ -17,12 +17,12 @@
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody class="table table-info table-border-bottom-0">
+                    <tbody class="table table-border-bottom-0">
                       <tr>
                         <td>1</td>
                         <td>MD</td>
                         <td>-</td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
+                        <td><span class="badge me-1">Active</span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

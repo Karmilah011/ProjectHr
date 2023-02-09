@@ -15,15 +15,16 @@ class CreateFormCutisTable extends Migration
     {
         Schema::create('form_cutis', function (Blueprint $table) {
             $table->id();
-            $table->string('no_karyawan');
-            $table->string('jeniscuti');
-            $table->string('sisacuti');
-            $table->string('alsncuti');
-            $table->string('periodecuti');
-            $table->string('jhari');
-            $table->string('atsn');
-            $table->integer('status_hrd');
-            $table->integer('status_pim');
+            $table->string('no_karyawan')->nullable();
+            $table->string('jeniscuti')->nullable();
+            $table->string('sisacuti')->nullable();
+            $table->string('alsncuti')->nullable();
+            $table->string('tanggalmulai')->nullable();
+            $table->string('tanggalselesai')->nullable();
+            $table->string('jhari')->nullable();
+            $table->string('atsn')->nullable();
+            $table->integer('status_hrd')->nullable();
+            $table->integer('status_pim')->nullable();
             $table->timestamps();
         });
     }

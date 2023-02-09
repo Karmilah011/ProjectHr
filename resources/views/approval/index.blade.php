@@ -3,7 +3,7 @@
 <div class="card">
                 <div class="table-responsive text-nowrap">
                   <table class="table">
-                    <thead class="table table-primary">
+                    <thead class="table">
                       <tr>
                         <th>No</th>
                         <th>Jenis Cuti</th>
@@ -14,7 +14,7 @@
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody class="table table-info table-border-bottom-0">
+                    <tbody class="table table-border-bottom-0">
                       <tr>
                         <td>1</td>
                         <td>Cuti Tahunan</td>

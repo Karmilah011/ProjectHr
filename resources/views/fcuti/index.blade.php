@@ -10,39 +10,54 @@
                <br>
               @endif
                 <div class="table-responsive text-nowrap">
-                  <table class="table table-dark">
-                    <thead style="background-color: #219ebc;">
+                  <table class="table">
+                    <thead style="">
                       <tr style="color: #f1faee;">
                         <th>No</th>
-                        <th>No Karyawan</th>
                         <th>Jenis Cuti</th>
-                        <th>Sisa Cuti</th>
                         <th>Alasan Cuti</th>
-                        <th>Periode Cuti</th>
-                        <th>Jumlah Hari</th>
-                        <th>Atasan</th>
-                        <th>Status HRD</th>
-                        <th>status Pimpinan</th>
+                        <th>Tanggal Pengajuan</th>
+                        <th>Tanggal Mulai</th>
+                        <th>Tanggal Selesai</th>
+                        <th>Status</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
+                    <?php $countData = count($fcuti); ?>
+                    @if($countData < 1)
+                      <tbody class="table-border-bottom" >
+                        <tr>
+                          <td colspan="11" height="200px">
+                            <h4 align="center">
+                              Tidak Ada Data
+                            </h4>
+                          </td>
+                        </tr>
+                      </tbody>
+                    @else
                     @foreach($fcuti as $no => $value)
                     <tbody class="table-border-bottom-0">
                       <tr>
                         <td>{{$no+1}}</td>
-                        <td>{{$value->no_karyawan}}</td>
                         <td>{{$value->jeniscuti}}</td>
-                        <td>{{$value->sisacuti}} Hari</td>
                         <td>{{$value->alsncuti}}</td>
-                        <td>{{$value->periodecuti}}</td>
-                        <td>{{$value->jhari}} Hari</td>
-                        <td>{{$value->atsn}}</td>
-                        <td><span class="badge {{ ($value->status_hrd == '1') ? 'bg-label-success' : 'bg-label-danger' }}">{{ ($value->status_hrd == '1') ? 'Approved' : 'Ditolak' }}</span></td>
-                        <td><span class="badge {{ ($value->status_hrd == '1') ? 'bg-label-danger' : 'bg-label-success' }}">{{ ($value->status_pim == '1') ? 'Approved' : 'Ditolak' }}</span></td>
+                        <td>{{$value->created_at}}</td>
+                        <td>{{$value->tanggalmulai}}</td>
+                        <td>{{$value->tanggalselesai}}</td>
+                        <!-- <td>
+                          <span class="badge @if($value->status_hrd == '1') bg-label-success @elseif($value->status_hrd == '0') bg-label-warning @else bg-label-danger @endif">
+                            @if($value->status_hrd == '1') Approved @elseif($value->status_hrd == '0') Waiting @else Ditolak @endif
+                          </span>
+                        </td> -->
+                        <td>
+                          <span class="badge @if($value->status_pim == '1') bg-label-success @elseif($value->status_pim == '0') bg-label-warning @else bg-label-danger @endif">
+                            @if($value->status_pim == '1') Approved @elseif($value->status_pim == '0') Waiting @else Ditolak @endif
+                          </span>
+                        </td>
                         <td>
                           <button type="button" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#basicModal">
                           <i class='bx bx-folder-open' style='color:#ffffff' ></i>
-                         </button>
+                          </button>
                           <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
@@ -71,21 +86,16 @@
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
-                                      <label for="nameBasic" class="form-label">Peiode Cuti</label>
-                                      <input type="text" id="nameBasic" class="form-control" placeholder="">
+                                      <label for="nameBasic" class="form-label">Tanggal Mulai</label>
+                                      <input type="date" id="nameBasic" class="form-control" placeholder="">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
-                                      <label for="nameBasic" class="form-label">Jumlah Hari</label>
-                                      <input type="text" id="nameBasic" class="form-control" placeholder="">
+                                      <label for="nameBasic" class="form-label">Tanggal selesai</label>
+                                      <input type="date" id="nameBasic" class="form-control" placeholder="">
                                     </div>
                                   </div>
-                                  <div class="row">
-                                    <div class="col mb-3">
-                                      <label for="nameBasic" class="form-label">Atasan</label>
-                                      <input type="text" id="nameBasic" class="form-control" placeholder="">
-                                    </div>
                                   </div>
                                   </div>
                                 </div>
@@ -136,17 +146,20 @@
                             </div>
                           </div>
                           @else(Auth()->user()->role == 'admin' || 'karyawan')
+                          @if($value->status_pim == '0')
                           <button type="button" class="btn btn-icon btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
                           <i class='bx bxs-pencil'></i>
-                        </button>
+                         </button>
                           <a href="#" class="btn btn-icon btn-danger delete" data-id="{{$value->id}}">
                           <i class='bx bx-trash'></i>
                           </a>
+                          @endif
                           @endif
                         </td>
                         </tr>
                     </tbody>
                     @endforeach
+                    @endif
                   </table>
                 </div>
                 @include('fcuti.create')

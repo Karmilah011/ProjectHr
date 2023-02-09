@@ -21,11 +21,11 @@
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- User -->
-                    <div class="avatar">
+                    <div class="avatar toogle-right">
                       <img src="{{asset('admin/assets/img/avatars/user2.png')}}" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                 <h6 style="margin: auto;">Welcome, {{ Auth::user()->name }}</h6>
-                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                <li class="nav-item navbar-dropdown dropdown-user dropdown toogle-right"> 
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                   <i class="bx bx-menu bx-sm"></i>
                   </a>

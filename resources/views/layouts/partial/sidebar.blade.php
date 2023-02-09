@@ -61,6 +61,12 @@
                 </li>
               </ul>
             </li>
+            <li class="menu-item left-toogle">
+              <a href="/logout" class="menu-link">
+              <i class="bx bx-power-off me-2"></i>
+              <div data-i18n="Basic">Log Out</div>
+              </a>
+            </li>
             @elseif(auth()->user()->role == 'pimpinan')
             <li   class="menu-item @if(Request::url() == route('dashboard.dashboard-pimpinan')) active @endif" id="side-dashboard">
               <a href="/dashboard-pimpinan" class="menu-link">
@@ -94,6 +100,12 @@
                 <div data-i18n="Basic">Report</div>
               </a>
             </li>
+            <li class="menu-item left-toogle">
+              <a href="/logout" class="menu-link">
+              <i class="bx bx-power-off me-2"></i>
+              <div data-i18n="Basic">Log Out</div>
+              </a>
+            </li>
             @else(auth()->user()->role == 'karyawan')
             <li   class="menu-item @if(Request::url() == route('dashboard')) active @endif" id="side-dashboard">
               <a href="/dashboard" class="menu-link">
@@ -119,6 +131,12 @@
               <a href="/report" class="menu-link">
               <i class='bx bxs-report menu-icon'></i>
                 <div data-i18n="Basic">Report</div>
+              </a>
+            </li>
+            <li class="menu-item left-toogle">
+              <a href="/logout" class="menu-link">
+              <i class="bx bx-power-off menu-icon"></i>
+              <div data-i18n="Basic">Log Out</div>
               </a>
             </li>
             @endif

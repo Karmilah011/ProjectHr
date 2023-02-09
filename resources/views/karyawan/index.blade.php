@@ -18,13 +18,13 @@
         <div class="tab-content">
             <div class="tab-pane fade active show" id="navs-top-home" role="tabpanel">
                  <div class="row mb-5">
-                    <div class="col-md-6 col-lg-4 mb-3" style="width: 20%; height: 15%">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3" style="width: 20%; height: 15%">
                         <div class="card h-100">
                             <img class="card-img-top" src="{{ asset('admin/assets/img/elements/2.jpg') }}"
                                 alt="Card image cap">
                         </div>
                     </div>
-                    <div class="col-md-20 col-lg-4 mb-3" style="width: 50%">
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mb-3" style="width: 80%">
                         <div class="card">
                             <div class="table-responsive text-nowrap">
                                 <table class="table table-striped">
@@ -104,7 +104,7 @@
                                 alt="Card image cap">
                         </div>
                     </div>
-                    <div class="col-md-20 col-lg-4 mb-3" style="width: 50%">
+                    <div class="col-md-20 col-lg-4 mb-3" style="width: 80%">
                         <div class="card">
                             <div class="table-responsive text-nowrap">
                                 <table class="table table-striped">

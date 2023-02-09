@@ -15,7 +15,7 @@ class KaryawanController extends Controller
     public function index()
     {
         $krwn = Karyawan::all();
-        return view('Karyawan.index', compact ('krwn'));
+        return view('karyawan.index', compact ('krwn'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Form_cuti;
+use Auth;
 use Illuminate\Http\Request;
 
 class FormCutiController extends Controller
@@ -37,6 +38,10 @@ class FormCutiController extends Controller
     public function store(Request $request)
     {
         Form_cuti::create($request->all());
+        $post->created_by = Auth::user()->id;
+        $post->updated_by = Auth::user()->id;
+        $post->status_pim = 0;
+        $post->save();
         return redirect('/fcuti');
     }
 
