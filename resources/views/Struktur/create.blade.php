@@ -62,7 +62,7 @@
                         </div>
                       </div>
 </div>
-<!-- @section('script')
+@section('script')
 <script>
   let parentOption = document.getElementById('parentOption')
       parentOption.value = "";
@@ -85,4 +85,4 @@
     // console.log(parentOption.value)
   });
 </script>
-@endsection -->
+@endsection
