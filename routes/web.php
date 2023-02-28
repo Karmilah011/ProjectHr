@@ -48,13 +48,6 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']],function(){
     Route::put('/scuti/update/{id}', 'SisaCutiController@update');
     Route::get('/scuti/hapus/{id}', 'SisaCutiController@destroy');
 
-    //route untuk struktur
-    Route::get('/struktur', 'StrukturController@index')->name('struktur.index');
-    Route::get('/struktur/create', 'StrukturController@create');
-    Route::post('/struktur/store', 'StrukturController@store');
-    Route::get('/struktur/edit/{id}', 'StrukturController@edit');
-    Route::put('/struktur/update/{id}', 'StrukturController@update');
-    Route::get('/struktur/hapus/{id}', 'StrukturController@destroy');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:pimpinan']],function(){
@@ -121,5 +114,13 @@ Route::group(['middleware' => ['auth']],function(){
       Route::get('/karyawan/edit/{id}', 'KaryawanController@edit');
       Route::put('/karyawan/update/{id}', 'KaryawanController@update');
       Route::get('/karyawan/hapus/{id}', 'KaryawanController@destroy');
+
+          //route untuk struktur
+    Route::get('/struktur', 'StrukturController@index')->name('struktur.index');
+    Route::get('/struktur/create', 'StrukturController@create');
+    Route::post('/struktur/store', 'StrukturController@store');
+    Route::get('/struktur/edit/{id}', 'StrukturController@edit');
+    Route::put('/struktur/update/{id}', 'StrukturController@update');
+    Route::get('/struktur/hapus/{id}', 'StrukturController@destroy');
 
 });
