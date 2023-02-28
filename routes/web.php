@@ -40,14 +40,6 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']],function(){
     Route::put('/fcuti/update/{id}', 'FormCutiController@update');
     Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
 
-    //route untuk karyawan
-    Route::get('/karyawan', 'KaryawanController@index')->name('karyawan.index');
-    Route::get('/karyawan/create', 'KaryawanController@create');
-    Route::post('/karyawan/store', 'KaryawanController@store');
-    Route::get('/karyawan/edit/{id}', 'KaryawanController@edit');
-    Route::put('/karyawan/update/{id}', 'KaryawanController@update');
-    Route::get('/karyawan/hapus/{id}', 'KaryawanController@destroy');
-
     //route untuk scuti
     Route::get('/scuti', 'SisaCutiController@index')->name('scuti.index');
     Route::get('/scuti/create', 'SisaCutiController@create');
@@ -77,15 +69,6 @@ Route::group(['middleware' => ['auth', 'checkRole:pimpinan']],function(){
     Route::put('/fcuti/update/{id}', 'FormCutiController@update');
     Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
 
-    //route untuk karyawan
-    Route::get('/karyawan', 'KaryawanController@index')->name('karyawan.index');
-    Route::get('/karyawan/create', 'KaryawanController@create');
-    Route::post('/karyawan/store', 'KaryawanController@store');
-    Route::get('/karyawan/edit/{id}', 'KaryawanController@edit');
-    Route::put('/karyawan/update/{id}', 'KaryawanController@update');
-    Route::get('/karyawan/hapus/{id}', 'KaryawanController@destroy');
-
-
     //route untuk scuti
     Route::get('/scuti', 'SisaCutiController@index')->name('scuti.index');
     Route::get('/scuti/create', 'SisaCutiController@create');
@@ -102,13 +85,6 @@ Route::group(['middleware' => ['auth', 'checkRole:pimpinan']],function(){
     Route::put('/approval/update/{id}', 'ApprovalController@update');
     Route::get('/approval/hapus/{id}', 'ApprovalController@destroy');
 
-    //route untuk struktur
-    Route::get('/struktur', 'StrukturController@index')->name('struktur.index');
-    Route::get('/struktur/create', 'StrukturController@create');
-    Route::post('/struktur/store', 'StrukturController@store');
-    Route::get('/struktur/edit/{id}', 'StrukturController@edit');
-    Route::put('/struktur/update/{id}', 'StrukturController@update');
-    Route::get('/struktur/hapus/{id}', 'StrukturController@destroy');
 });
 
 Route::group(['middleware' => ['auth', 'checkRole:karyawan']],function(){
@@ -122,13 +98,7 @@ Route::group(['middleware' => ['auth', 'checkRole:karyawan']],function(){
     Route::put('/fcuti/update/{id}', 'FormCutiController@update');
     Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
 
-    //route untuk karyawan
-    Route::get('/karyawan', 'KaryawanController@index')->name('karyawan.index');
-    Route::get('/karyawan/create', 'KaryawanController@create');
-    Route::post('/karyawan/store', 'KaryawanController@store');
-    Route::get('/karyawan/edit/{id}', 'KaryawanController@edit');
-    Route::put('/karyawan/update/{id}', 'KaryawanController@update');
-    Route::get('/karyawan/hapus/{id}', 'KaryawanController@destroy');
+  
 
     //route untuk scuti
     Route::get('/scuti', 'SisaCutiController@index')->name('scuti.index');
@@ -138,18 +108,18 @@ Route::group(['middleware' => ['auth', 'checkRole:karyawan']],function(){
     Route::put('/scuti/update/{id}', 'SisaCutiController@update');
     Route::get('/scuti/hapus/{id}', 'SisaCutiController@destroy');
 
-    //route untuk struktur
-    Route::get('/struktur', 'StrukturController@index')->name('struktur.index');
-    Route::get('/struktur/create', 'StrukturController@create');
-    Route::post('/struktur/store', 'StrukturController@store');
-    Route::get('/struktur/edit/{id}', 'StrukturController@edit');
-    Route::put('/struktur/update/{id}', 'StrukturController@update');
-    Route::get('/struktur/hapus/{id}', 'StrukturController@destroy');
 
 });
 
 Route::group(['middleware' => ['auth']],function(){
     Route::get('/report','ReportController@report')->name('report.index');
     // Route::get('/report/test','ReportController@report')->name('report.index');
+      //route untuk karyawan
+      Route::get('/karyawan', 'KaryawanController@index')->name('karyawan.index');
+      Route::get('/karyawan/create', 'KaryawanController@create');
+      Route::post('/karyawan/store', 'KaryawanController@store');
+      Route::get('/karyawan/edit/{id}', 'KaryawanController@edit');
+      Route::put('/karyawan/update/{id}', 'KaryawanController@update');
+      Route::get('/karyawan/hapus/{id}', 'KaryawanController@destroy');
 
 });

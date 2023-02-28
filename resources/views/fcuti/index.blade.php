@@ -49,7 +49,7 @@
                             @if($value->status_hrd == '1') Approved @elseif($value->status_hrd == '0') Waiting @else Ditolak @endif
                           </span>
                         </td> -->
-                        <td>
+                       <td>
                           <span class="badge @if($value->status_pim == '1') bg-label-success @elseif($value->status_pim == '0') bg-label-warning @else bg-label-danger @endif">
                             @if($value->status_pim == '1') Approved @elseif($value->status_pim == '0') Waiting @else Ditolak @endif
                           </span>
@@ -110,7 +110,7 @@
                           @if(Auth()->user()->role == 'pimpinan')
                           <button type="button" class="btn btn-icon btn-warning" data-bs-toggle="modal" data-bs-target="#basicModal">
                           <i class='bx bx-check'></i>
-                         </button>
+                          </button>
                           <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">

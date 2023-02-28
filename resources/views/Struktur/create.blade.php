@@ -16,30 +16,37 @@
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameBasic" class="form-label">Nama Organisasi</label>
-                                    <input type="text" name="no_karyawan" id="nameBasic" class="form-control" placeholder="Masukan Nama Organisasi" />
+                                    <input type="text" name="namaorganisasi" id="nameBasic" class="form-control" placeholder="Masukan Nama Organisasi" />
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="emailBasic" class="form-label">Deskripsi Organisasi</label>
-                                    <textarea name="" id="" cols="15" rows="5" class="form-control"></textarea>
+                                    <textarea name="deskorganisasi" id="" cols="15" rows="2" class="form-control"></textarea>
                                   </div>
                                   <div class="row">
-                                  <div class="col mb-4">
+                                  <div class="col mb-3">
                                     <label for="dobBasic" class="form-label">Parent organisasi</label>
-                                    <select name="role" id="" class="form-control">
-                                      <option value="" disable>Parent</option>
-                                      <option value="admin">MD</option>
-                                      <option value="pimpinan">Tech</option>
-                                      <option value="karyawan">Product & Tech</option>
+                                    <select name="parent" id="parentOption" class="form-control">
+                                      <option value="" Disabled>Parent</option>
+                                      <option value="md">MD</option>
+                                      <option value="tech">Tech</option>
+                                      <option value="product">Product & Tech</option>
                                     </select>
+                                    <input class="form-check-input" type="checkbox" value = "true" id="topParentCheck">
+                                      <label class="form-check-label" for="flexCheckDefault">
+                                        Top Parent
+                                      </label>
                                   </div>
                                 </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="nameBasic" class="form-label">Email</label>
-                                    <input type="text" name="email" id="nameBasic" class="form-control" placeholder="xxxx@renos.id"/>
+                                    <label for="nameBasic" class="form-label">Status</label>
+                                    <div class="form-check form-switch mb-2">
+                                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+                                      <label class="form-check-label" for="flexSwitchCheckChecked">Aktif</label>
+                                    </div>
                                   </div>
                               </div>
                               </div>
@@ -54,4 +61,28 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+</div>
+@section('script')
+<script>
+  let parentOption = document.getElementById('parentOption')
+      parentOption.value = "";
+  // location.reload();
+  let topParentCheck = document.getElementById('topParentCheck')
+      topParentCheck.checked = false;
+  parentOption.addEventListener("click", ()=>{
+    topParentCheck.disabled = true;
+    // console.log(parentOption.value)
+  });
+
+  topParentCheck.addEventListener("click", ()=>{
+    if(topParentCheck.checked){
+      parentOption.value = "";
+      parentOption.disabled = true;
+    }else{
+      parentOption.value = "";
+      parentOption.disabled = false;
+    }
+    // console.log(parentOption.value)
+  });
+</script>
+@endsection

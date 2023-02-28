@@ -18,6 +18,7 @@ class CreateStruktursTable extends Migration
             $table->string('namaorganisasi');
             $table->string('deskorganisasi');
             $table->string('parent');
+            $table->string('emailstruktur');
             $table->string('status');
             $table->timestamps();
         });
