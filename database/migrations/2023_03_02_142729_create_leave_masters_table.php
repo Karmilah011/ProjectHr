@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStruktursTable extends Migration
+class CreateLeaveMastersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateStruktursTable extends Migration
      */
     public function up()
     {
-        Schema::create('strukturs', function (Blueprint $table) {
+        Schema::create('leave_masters', function (Blueprint $table) {
             $table->id();
-            $table->string('namaorganisasi');
-            $table->string('deskorganisasi');
-            $table->string('parent');
-            $table->string('status');
+            $table->integer('leave_type_id');
+            $table->enum('day',['annual','effectivedate']);
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class CreateStruktursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('strukturs');
+        Schema::dropIfExists('leave_masters');
     }
 }

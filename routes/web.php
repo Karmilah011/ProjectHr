@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+ 
 Route::get('/', function () {
-    return view('auths.login');
+    return view('auths.login')->name('login');
 });
 
 Route::get('/login', 'AuthController@login')->name('login');
@@ -22,7 +22,7 @@ Route::get('/forgot-password','AuthController@forgot');
 Route::post('/postlogin', 'AuthController@postlogin');
 Route::get('/logout', 'AuthController@logout');
 
-Route::group(['middleware' => ['auth', 'checkRole:admin']],function(){
+Route::group(['middleware' => ['auth','prevent-back-history','checkRole:admin']],function(){
     Route::get('/dashboard-admin','DashboardController@dashboardAdmin')->name('dashboard.dashboard-admin');
 
     //route untuk user
@@ -48,10 +48,16 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']],function(){
     Route::put('/scuti/update/{id}', 'SisaCutiController@update');
     Route::get('/scuti/hapus/{id}', 'SisaCutiController@destroy');
 
+    //route untuk job
+    Route::get('/job', 'JobController@index')->name('job.index');
+
+    //route untuk role
+    Route::get('/role', 'RoleController@index')->name('role.index');
+
 });
 
-Route::group(['middleware' => ['auth', 'checkRole:pimpinan']],function(){
-    Route::get('/dashboard-pimpinan','DashboardController@dashboardPimpinan')->name('dashboard.dashboard-pimpinan');
+Route::group(['middleware' => ['auth', 'checkRole:approver', 'prevent-back-history']],function(){
+    Route::get('/dashboard-approver','DashboardController@dashboardapprover')->name('dashboard.dashboard-approver');
     //route untuk user
 
     //route untuk fcuti
@@ -80,7 +86,7 @@ Route::group(['middleware' => ['auth', 'checkRole:pimpinan']],function(){
 
 });
 
-Route::group(['middleware' => ['auth', 'checkRole:karyawan']],function(){
+Route::group(['middleware' => ['auth', 'checkRole:user', 'prevent-back-history']],function(){
     Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
 
     //route untuk fcuti
@@ -91,7 +97,6 @@ Route::group(['middleware' => ['auth', 'checkRole:karyawan']],function(){
     Route::put('/fcuti/update/{id}', 'FormCutiController@update');
     Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
 
-  
 
     //route untuk scuti
     Route::get('/scuti', 'SisaCutiController@index')->name('scuti.index');
@@ -104,7 +109,7 @@ Route::group(['middleware' => ['auth', 'checkRole:karyawan']],function(){
 
 });
 
-Route::group(['middleware' => ['auth']],function(){
+Route::group(['middleware' => ['auth', 'prevent-back-history']],function(){
     Route::get('/report','ReportController@report')->name('report.index');
     // Route::get('/report/test','ReportController@report')->name('report.index');
       //route untuk karyawan

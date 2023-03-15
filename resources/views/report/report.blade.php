@@ -31,19 +31,25 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Jenis Cuti</th>
-                        <th>Alasan Cuti</th>
-                        <th>Tgl Mulai</th>
-                        <th>Tgl Selesai</th>
+                        <th>User_ID</th>
+                        <th>Name</th>
+                        <th>Leave Type</th>
+                        <th>Reason for Leave</th>
+                        <th>Start Date</th>
+                        <th>Date of Completion</th>
+                        <th>Status</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
                       <tr>
                         <td>1</td>
-                        <td>Cuti Tahunan</td>
-                        <td>Liburan</td>
+                        <td>000000</td>
+                        <td>Mila</td>
+                        <td>Annual Leave</td>
+                        <td>Holiday</td>
                         <td>1 January 2023</td>
-                        <td>9 January 2023</td>
+                        <td>3 January 2023</td>
+                        <td><span class="badge bg-label-primary me-1">Approved</span></td>
                       </tr>
                     </tbody>
                   </table>

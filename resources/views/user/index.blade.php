@@ -12,7 +12,7 @@
                       <tr>
                         <th>No</th>
                         <th>Id</th>
-                        <th>Nama</th>
+                        <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Actions</th>

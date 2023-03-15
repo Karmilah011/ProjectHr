@@ -6,10 +6,10 @@
                     <thead class="table">
                       <tr>
                         <th>No</th>
-                        <th>Jenis Cuti</th>
-                        <th>Nama Karyawan</th>
-                        <th>Tgl Mulai</th>
-                        <th>Tgl Selesai</th>
+                        <th>Leave Type</th>
+                        <th>Employee Name</th>
+                        <th>Start Date</th>
+                        <th>Date of Completion</th>
                         <th>Status</th>
                         <th>Actions</th>
                       </tr>
@@ -40,7 +40,7 @@
                         <td>Adimarta</td>
                         <td>1 Dec 2022</td>
                         <td>5 Dec 2022</td>
-                        <td><span class="badge bg-label-info me-1">Menunggu Approval</span></td>
+                        <td><span class="badge bg-label-info me-1">Waiting Approved</span></td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

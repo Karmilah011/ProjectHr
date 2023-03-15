@@ -10,9 +10,9 @@ class DashboardController extends Controller
     {
         return view('dashboard.dashboard');
     }
-    public function dashboardPimpinan()
+    public function dashboardapprover()
     {
-        return view('dashboard.dashboard-pimpinan');
+        return view('dashboard.dashboard-approver');
     }
     public function dashboardAdmin()
     {

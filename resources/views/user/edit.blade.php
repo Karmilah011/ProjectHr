@@ -11,13 +11,13 @@
                         @csrf
                         @method('PUT')
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-name">No Karyawan</label>
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">User ID</label>
                           <div class="col-sm-10">
                             <input type="text" value="{{$value->no_karyawan}}" name="no_karyawan" class="form-control" id="basic-default-name" placeholder="Masukan No Karyawan">
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-company">Nama Karyawan</label>
+                          <label class="col-sm-2 col-form-label" for="basic-default-company">Name</label>
                           <div class="col-sm-10">
                             <input type="text" value="{{$value->name}}" name="name" class="form-control" id="basic-default-company" placeholder="Masukan Nama Anda">
                           </div>
@@ -26,10 +26,10 @@
                                     <label for="dobBasic" class="col-sm-2 col-form-label" for="basic-default-company">Role</label>
                                     <div class="col-sm-10">
                                     <select value="{{$value->role}}" name="role" id="" class="form-control">
-                                      <option value="" disable>~Pilih Role~</option>
+                                      <option value="" disable>~Role~</option>
                                       <option value="admin">Admin</option>
-                                      <option value="pimpinan">Pimpinan</option>
-                                      <option value="karyawan">Karyawan</option>
+                                      <option value="approver">approver</option>
+                                      <option value="user">User</option>
                                     </select>
                                   </div>
                         </div>

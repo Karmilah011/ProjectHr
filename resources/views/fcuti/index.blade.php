@@ -14,11 +14,11 @@
                     <thead style="">
                       <tr style="color: #f1faee;">
                         <th>No</th>
-                        <th>Jenis Cuti</th>
-                        <th>Alasan Cuti</th>
-                        <th>Tanggal Pengajuan</th>
-                        <th>Tanggal Mulai</th>
-                        <th>Tanggal Selesai</th>
+                        <th>Leave Type</th>
+                        <th>Reason for Leave</th>
+                        <th>Date of Filing</th>
+                        <th>Start Date</th>
+                        <th>Date of Completion</th>
                         <th>Status</th>
                         <th>Actions</th>
                       </tr>
@@ -51,7 +51,7 @@
                         </td> -->
                        <td>
                           <span class="badge @if($value->status_pim == '1') bg-label-success @elseif($value->status_pim == '0') bg-label-warning @else bg-label-danger @endif">
-                            @if($value->status_pim == '1') Approved @elseif($value->status_pim == '0') Waiting @else Ditolak @endif
+                            @if($value->status_pim == '1') Approved @elseif($value->status_pim == '0') Waiting @else Reject @endif
                           </span>
                         </td>
                         <td>
@@ -62,37 +62,37 @@
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel1">Detail Cuti</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel1">Leave Details</h5>
                                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                   <div class="row">
                                     <div class="col mb-3">
-                                      <label for="nameBasic" class="form-label">Jenis Cuti</label>
+                                      <label for="nameBasic" class="form-label">Leave Type</label>
                                       <input type="text" id="nameBasic" class="form-control" placeholder="Enter Name">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
-                                      <label for="nameBasic" class="form-label">Sisa Cuti</label>
+                                      <label for="nameBasic" class="form-label">Laave Master</label>
                                       <input type="text" id="nameBasic" class="form-control" placeholder="">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
-                                      <label for="nameBasic" class="form-label">Alasan Cuti</label>
+                                      <label for="nameBasic" class="form-label">Reason for Leave</label>
                                       <textarea name="" id="" cols="15" rows="5" class="form-control" placeholder=""></textarea>
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
-                                      <label for="nameBasic" class="form-label">Tanggal Mulai</label>
+                                      <label for="nameBasic" class="form-label">Start Date</label>
                                       <input type="date" id="nameBasic" class="form-control" placeholder="">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
-                                      <label for="nameBasic" class="form-label">Tanggal selesai</label>
+                                      <label for="nameBasic" class="form-label">Date of Completion</label>
                                       <input type="date" id="nameBasic" class="form-control" placeholder="">
                                     </div>
                                   </div>
@@ -101,13 +101,13 @@
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                    Tutup
+                                    Close
                                   </button>
                                 </div>
                               </div>
                             </div>
                           </div>
-                          @if(Auth()->user()->role == 'pimpinan')
+                          @if(Auth()->user()->role == 'approver')
                           <button type="button" class="btn btn-icon btn-warning" data-bs-toggle="modal" data-bs-target="#basicModal">
                           <i class='bx bx-check'></i>
                           </button>

@@ -69,7 +69,7 @@
                 </a>
               </div>
               <!-- /Logo -->
-              <form id="formAuthentication" class="mb-3" action="/postlogin" method="POST">
+              <form id="formAuthentication" class="mb-3" action="/postlogin" autocomplete="off" method="POST">
                 @csrf
                 <div class="mb-3">
                   <label for="email" class="form-label">Username</label>

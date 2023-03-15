@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStruktursTable extends Migration
+class CreateJobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateStruktursTable extends Migration
      */
     public function up()
     {
-        Schema::create('strukturs', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('namaorganisasi');
-            $table->string('deskorganisasi');
-            $table->string('parent');
-            $table->string('status');
+            $table->enum('job_name',['staff','lead','head','direktur']);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateStruktursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('strukturs');
+        Schema::dropIfExists('jobs');
     }
 }

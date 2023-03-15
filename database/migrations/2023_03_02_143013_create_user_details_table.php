@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStruktursTable extends Migration
+class CreateUserDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateStruktursTable extends Migration
      */
     public function up()
     {
-        Schema::create('strukturs', function (Blueprint $table) {
+        Schema::create('user_details', function (Blueprint $table) {
             $table->id();
-            $table->string('namaorganisasi');
-            $table->string('deskorganisasi');
-            $table->string('parent');
-            $table->string('status');
+            $table->string('employe_id');
+            $table->string('name');
+            $table->date('tanggal_lahir');
+            $table->string('kota');
+            $table->date('tanggal_bergabung');
+            $table->string('attachment');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateStruktursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('strukturs');
+        Schema::dropIfExists('user_details');
     }
 }

@@ -20,7 +20,7 @@ class CreateApprovalsTable extends Migration
             $table->string('tgl_pengajuan');
             $table->string('tgl_mulai');
             $table->string('tgl_selesai');
-            $table->enum('status',['approved','waiting','reject']);
+            $table->enum('approved',['setuju','tolak','batal','menunggu']);
             $table->timestamps();
         });
     }

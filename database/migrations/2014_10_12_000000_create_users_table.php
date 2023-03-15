@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('no_karyawan');
             $table->string('name');
-            $table->enum('role',['admin','pimpinan','karyawan']);
+            $table->enum('role',['admin','approver','user']);
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

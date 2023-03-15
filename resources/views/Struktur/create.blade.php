@@ -2,7 +2,7 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="smallModal">Form User</h5>
+                                <h5 class="modal-title" id="smallModal">Form Struktur</h5>
                                 <button
                                   type="button"
                                   class="btn-close"
@@ -11,22 +11,22 @@
                                 ></button>
                               </div>
                               <div class="modal-body">
-                                <form action="/user/store" method="POST">
+                                <form action="/struktur/store" method="POST">
                                   @csrf
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="nameBasic" class="form-label">Nama Organisasi</label>
-                                    <input type="text" name="namaorganisasi" id="nameBasic" class="form-control" placeholder="Masukan Nama Organisasi" />
+                                    <label for="nameBasic" class="form-label">Organization Name</label>
+                                    <input type="text" name="namaorganisasi" id="nameBasic" class="form-control" placeholder="Masukan Nama Organisasi">
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="emailBasic" class="form-label">Deskripsi Organisasi</label>
+                                    <label for="emailBasic" class="form-label">Organization Description</label>
                                     <textarea name="deskorganisasi" id="" cols="15" rows="2" class="form-control"></textarea>
                                   </div>
                                   <div class="row">
                                   <div class="col mb-3">
-                                    <label for="dobBasic" class="form-label">Parent organisasi</label>
+                                    <label for="dobBasic" class="form-label">Organization Parent</label>
                                     <select name="parent" id="parentOption" class="form-control">
                                       <option value="" Disabled>Parent</option>
                                       <option value="md">MD</option>
@@ -45,15 +45,15 @@
                                     <label for="nameBasic" class="form-label">Status</label>
                                     <div class="form-check form-switch mb-2">
                                       <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
-                                      <label class="form-check-label" for="flexSwitchCheckChecked">Aktif</label>
+                                      <label class="form-check-label" for="flexSwitchCheckChecked">Active</label>
                                     </div>
                                   </div>
                               </div>
                               </div>
                               <div class="modal-footer">
-                               <button type="submit" class="btn btn-primary">Ajukan</button>
+                               <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                  Batal
+                                  Cancel
                                 </button>
                               </div>
                               </form>

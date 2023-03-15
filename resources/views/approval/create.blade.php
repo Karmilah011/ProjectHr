@@ -4,7 +4,7 @@
                         <div class="modal-dialog modal-sm" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel2">Form Cuti</h5>
+                              <h5 class="modal-title" id="exampleModalLabel2">Leave Form</h5>
                               <button
                                 type="button"
                                 class="btn-close"
@@ -16,10 +16,10 @@
                             <div class="row">
                                 <div class="col mb-3">
                                     <label for=""></label>
-                                  <label for="jeniscuti" class="form-label">Jenis Cuti</label>
+                                  <label for="jeniscuti" class="form-label">Leave type</label>
                                   <select id="defaultSelect" class="form-select" placeholder="">
-                                    <option value="1">Liburan</option>
-                                    <option value="2">Sakit</option>
+                                    <option value="1">Annual Leave</option>
+                                    <option value="2">Sick Leave</option>
                                     <option value="3">Melahirkan</option>
                                   </select>
                                 </div>
