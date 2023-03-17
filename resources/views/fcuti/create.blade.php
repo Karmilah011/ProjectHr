@@ -21,7 +21,7 @@
                                 <div class="row g-2" id="cutiWrapper">
                                   <div class="col mb-0">
                                     <label for="emailBasic" class="form-label">The Rest of The Day</label>
-                                    <input name="scuti" type="text" id="emailBasic" class="form-control" placeholder="">
+                                    <input name="leave_type_name" type="text" id="emailBasic" class="form-control" placeholder="">
                                   </div>
                                 <div class="row">
                                 <div class="col mb-0">

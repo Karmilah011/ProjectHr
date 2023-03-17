@@ -13,16 +13,10 @@
                               <div class="modal-body">
                                 <form action="/role/store" method="POST">
                                   @csrf
-                                  <div class="row">
-                                  <div class="col mb-3">
-                                    <label for="nameBasic" class="form-label">Role ID</label>
-                                    <input type="text" name="role_id" id="nameBasic" class="form-control" placeholder="Masukan ID Role">
-                                  </div>
-                                </div>
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameBasic" class="form-label">Role Name</label>
-                                    <input type="text" name="role_name" id="nameBasic" class="form-control" placeholder="Masukan Role Name">
+                                    <input type="text" name="name" id="nameBasic" class="form-control" placeholder="Masukan Role Name">
                                   </div>
                                 </div>
                               <div class="modal-footer">

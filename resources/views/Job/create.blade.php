@@ -13,16 +13,10 @@
                               <div class="modal-body">
                                 <form action="/job/store" method="POST">
                                   @csrf
-                                  <div class="row">
-                                  <div class="col mb-3">
-                                    <label for="nameBasic" class="form-label">Job ID</label>
-                                    <input type="text" name="job_id" id="nameBasic" class="form-control" placeholder="Masukan ID Job">
-                                  </div>
-                                </div>
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameBasic" class="form-label">Job Name</label>
-                                    <input type="text" name="job_name" id="nameBasic" class="form-control" placeholder="Masukan Job Name">
+                                    <input type="text" name="name" id="nameBasic" class="form-control" placeholder="Masukan Job Name">
                                   </div>
                                 </div>
                               <div class="modal-footer">

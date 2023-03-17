@@ -37,8 +37,8 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $role = new Role;
-        $role->role_id = $request->role;
         $role->role_name = $request->name;
+        $role->save();
 
         return redirect('/role');
     }

@@ -15,7 +15,7 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->enum('job_name',['staff','lead','head','direktur']);
+            $table->string('job_name');
             $table->timestamps();
         });
     }

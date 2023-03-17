@@ -15,10 +15,23 @@
                         <th>Actions</th>
                       </tr>
                     </thead>
+                    <?php $countData = count($job); ?>
+                    @if($countData < 1)
+                      <tbody class="table-border-bottom" >
+                        <tr>
+                          <td colspan="11" height="200px">
+                            <h4 align="center">
+                              Tidak Ada Data
+                            </h4>
+                          </td>
+                        </tr>
+                      </tbody>
+                    @else
+                    @foreach($job as $no => $value)
                     <tbody class="table table-border-bottom-0">
                       <tr>
-                        <td>1</td>
-                        <td>Head</td>
+                      <td>{{$no+1}}</td>
+                        <td>{{$value->job_name}}</td>
                         <td>
                           <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
@@ -32,6 +45,8 @@
                         </td>
                         </tr>
                     </tbody>
+                    @endforeach
+                    @endif
                   </table>
                   <br>
                   <div class="pagination justify-content-center">

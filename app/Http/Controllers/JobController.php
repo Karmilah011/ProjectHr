@@ -36,7 +36,11 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $job = new Job;
+        $job->job_name = $request->name;
+        $job->save();
+
+        return redirect('/job');
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <div class="card">
-            @if(auth()->user()->role == 'karyawan')
+            @if(auth()->user()->role == 'user')
              <div class="d-flex justify-content-end pt-2" style="padding-right: 25px">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#smallModal">
                 <i class='bx bxs-plus-circle'></i> Add Cuti
@@ -39,7 +39,7 @@
                     <tbody class="table-border-bottom-0">
                       <tr>
                         <td>{{$no+1}}</td>
-                        <td>{{$value->jeniscuti}}</td>
+                        <td>{{$value->leave_type_name}}</td>
                         <td>{{$value->alsncuti}}</td>
                         <td>{{$value->created_at}}</td>
                         <td>{{$value->tanggalmulai}}</td>
@@ -69,31 +69,31 @@
                                   <div class="row">
                                     <div class="col mb-3">
                                       <label for="nameBasic" class="form-label">Leave Type</label>
-                                      <input type="text" id="nameBasic" class="form-control" placeholder="Enter Name">
+                                      <input type="text" name="leave_type_id" id="nameBasic" class="form-control" placeholder="Enter Name">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
                                       <label for="nameBasic" class="form-label">Laave Master</label>
-                                      <input type="text" id="nameBasic" class="form-control" placeholder="">
+                                      <input type="text" name="leave_master_id" id="nameBasic" class="form-control" placeholder="">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
                                       <label for="nameBasic" class="form-label">Reason for Leave</label>
-                                      <textarea name="" id="" cols="15" rows="5" class="form-control" placeholder=""></textarea>
+                                      <textarea name="alsncuti" id="" cols="15" rows="5" class="form-control" placeholder=""></textarea>
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
                                       <label for="nameBasic" class="form-label">Start Date</label>
-                                      <input type="date" id="nameBasic" class="form-control" placeholder="">
+                                      <input type="date" name="tanggalmulai" id="nameBasic" class="form-control" placeholder="">
                                     </div>
                                   </div>
                                   <div class="row">
                                     <div class="col mb-3">
                                       <label for="nameBasic" class="form-label">Date of Completion</label>
-                                      <input type="date" id="nameBasic" class="form-control" placeholder="">
+                                      <input type="date" name="tanggalselesai" id="nameBasic" class="form-control" placeholder="">
                                     </div>
                                   </div>
                                   </div>

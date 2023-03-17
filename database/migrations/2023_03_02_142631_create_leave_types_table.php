@@ -15,7 +15,7 @@ class CreateLeaveTypesTable extends Migration
     {
         Schema::create('leave_types', function (Blueprint $table) {
             $table->id();
-            $table->enum('leave_type_name',['sick','ibadah','anual']);
+            $table->string('leave_type_name');
             $table->timestamps();
         });
     }

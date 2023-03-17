@@ -54,8 +54,8 @@
                     <div data-i18n="Notifications">Job Position</div>
                   </a>
                 </li>
-                <li class="menu-item">
-                  <a href="pages-account-settings-connections.html" class="menu-link">
+                <li class="menu-item @if(Request::url() == route('leavemaster.index')) active @endif" id="side-leavemaster">
+                  <a href="/leavemaster" class="menu-link">
                     <div data-i18n="Connections">Master Leave</div>
                   </a>
                 </li>

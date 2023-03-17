@@ -50,9 +50,13 @@ Route::group(['middleware' => ['auth','prevent-back-history','checkRole:admin']]
 
     //route untuk job
     Route::get('/job', 'JobController@index')->name('job.index');
-
+    Route::post('/job/store', 'JobController@store');
     //route untuk role
     Route::get('/role', 'RoleController@index')->name('role.index');
+    Route::post('/role/store', 'RoleController@store');
+
+    //route untuk leavemaster
+    Route::get('/leavemaster', 'LeaveMasterController@index')->name('leavemaster.index');
 
 });
 
