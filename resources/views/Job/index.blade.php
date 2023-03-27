@@ -21,7 +21,7 @@
                         <tr>
                           <td colspan="11" height="200px">
                             <h4 align="center">
-                              Tidak Ada Data
+                              No Data
                             </h4>
                           </td>
                         </tr>

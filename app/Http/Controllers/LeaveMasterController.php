@@ -14,7 +14,8 @@ class LeaveMasterController extends Controller
      */
     public function index()
     {
-        //
+        $leavemaster = LeaveMaster::all();
+        return view('leavemaster.index', compact ('leavemaster'));
     }
 
     /**
@@ -24,7 +25,7 @@ class LeaveMasterController extends Controller
      */
     public function create()
     {
-        //
+        return view('leavemaster.create');
     }
 
     /**
