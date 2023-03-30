@@ -75,12 +75,15 @@
                   <label for="email" class="form-label">Username</label>
                   <input
                     type="text"
-                    class="form-control"
+                    class="form-control @error('email') is-invalid @enderror"
                     id="email"
                     name="email"
                     placeholder="Enter your email Renos"
                     autofocus
                   />
+                  @error('email')
+                    <div class="text text-danger">{{ $message }}</div>
+                  @enderror
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
@@ -93,17 +96,26 @@
                     <input
                       type="password"
                       id="password"
-                      class="form-control"
+                      class="form-control @error('password') is-invalid @enderror"
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
+                  @error('password')
+                        <div class="text-danger">{{ $message }}</div>
+                  @enderror
                 </div>
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>
+                @if(\Session::has('alert'))
+                       <div class="alert alert-danger alert-dismissible" role="alert">
+                       {{Session::get('alert')}}
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                      </div>
+                @endif
               </form>
             </div>
           </div>

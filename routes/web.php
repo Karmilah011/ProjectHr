@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
  
 Route::get('/', function () {
-    return view('auths.login')->name('login');
+    return view('auths.login');
 });
 
 Route::get('/login', 'AuthController@login')->name('login');
@@ -117,12 +117,7 @@ Route::group(['middleware' => ['auth', 'prevent-back-history']],function(){
     Route::get('/report','ReportController@report')->name('report.index');
     // Route::get('/report/test','ReportController@report')->name('report.index');
       //route untuk karyawan
-      Route::get('/karyawan', 'KaryawanController@index')->name('karyawan.index');
-      Route::get('/karyawan/create', 'KaryawanController@create');
-      Route::post('/karyawan/store', 'KaryawanController@store');
-      Route::get('/karyawan/edit/{id}', 'KaryawanController@edit');
-      Route::put('/karyawan/update/{id}', 'KaryawanController@update');
-      Route::get('/karyawan/hapus/{id}', 'KaryawanController@destroy');
+      Route::get('/user-detail/{id}', 'UserDetailController@index')->name('user-detail.index');
 
           //route untuk struktur
     Route::get('/struktur', 'StrukturController@index')->name('struktur.index');

@@ -17,10 +17,20 @@ class CreateUserDetailsTable extends Migration
             $table->id();
             $table->string('employe_id');
             $table->string('name');
-            $table->date('tanggal_lahir');
-            $table->string('kota');
-            $table->date('tanggal_bergabung');
-            $table->string('attachment');
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('kota')->nullable();
+            $table->string('email');
+            $table->string('job_id')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('tempat_kelahiran')->nullable();
+            $table->text('alamat_ktp')->nullable();
+            $table->text('alamat_tinggal')->nullable();
+            $table->string('no_hp')->nullable();
+            $table->integer('organisasi_id')->nullable();
+            $table->string('tanggal_bergabung')->nullable();
+            $table->string('masa_kerja')->nullable();
+            $table->string('status')->nullable();
+            $table->string('attachment')->nullable();
             $table->timestamps();
         });
     }

@@ -12,9 +12,13 @@ class UserDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($employeId)
     {
-        //
+        $userDetail = UserDetail::where('employe_id',$employeId)->first();
+        $userFamily = UserDetail::all();
+        // var_dump($userDetail->name);
+        // die;
+        return view('user-detail.index',compact('userDetail','userFamily'));
     }
 
     /**
