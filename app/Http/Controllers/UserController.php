@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\UserDetail;
+use App\UserFamily;
 use Hash;
 
 class UserController extends Controller
@@ -20,9 +22,15 @@ class UserController extends Controller
         $user->role = $request->role;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->no_karyawan = $request->no_karyawan;
+        $user->employe_id = $request->employe_id;
         $user->password = Hash::make($request->password);
         $user->save();
+
+        $userDetail = new UserDetail;
+        $userDetail->email = $request->email;
+        $userDetail->name = $request->name;
+        $userDetail->employe_id = $request->employe_id;
+        $userDetail->save();
 
         return redirect('/user');
     }

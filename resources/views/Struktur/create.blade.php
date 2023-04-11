@@ -16,13 +16,13 @@
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameBasic" class="form-label">Organization Name</label>
-                                    <input type="text" name="namaorganisasi" id="nameBasic" class="form-control" placeholder="Masukan Nama Organisasi">
+                                    <input type="text" name="namaorganisasi" id="nameBasic" class="form-control" autocomplete="off" placeholder="Masukan Nama Organisasi">
                                   </div>
                                 </div>
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="emailBasic" class="form-label">Organization Description</label>
-                                    <textarea name="deskorganisasi" id="" cols="15" rows="2" class="form-control"></textarea>
+                                    <textarea name="deskorganisasi" id="" cols="15" rows="2" class="form-control" autocomplete="off"></textarea>
                                   </div>
                                   <div class="row">
                                   <div class="col mb-3">

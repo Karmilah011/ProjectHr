@@ -11,9 +11,9 @@
                         @csrf
                         @method('PUT')
                         <div class="row mb-3">
-                          <label class="col-sm-2 col-form-label" for="basic-default-name">User ID</label>
+                          <label class="col-sm-2 col-form-label" for="basic-default-name">Employee ID</label>
                           <div class="col-sm-10">
-                            <input type="text" value="{{$value->no_karyawan}}" name="no_karyawan" class="form-control" id="basic-default-name" placeholder="Masukan No Karyawan">
+                            <input type="text" value="{{$value->employe_id}}" name="employe_id" class="form-control" id="basic-default-name" placeholder="Masukan No Karyawan">
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -52,6 +52,9 @@
                         <div class="row justify-content-end">
                           <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">Send</button>
+                            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">
+                                  Batal
+                                </button>
                           </div>
                         </div>
                       </form>

@@ -15,17 +15,16 @@ class CreateUserFamiliesTable extends Migration
     {
         Schema::create('user_families', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
-            $table->string('user_detail_id');
-            $table->string('nama_family');
-            $table->string('status_family');
-            $table->string('familie_type_id');
-            $table->string('tmpat_klahiran_fam');
-            $table->string('tgl_lahir_fam');
-            $table->string('alamt_ktp_fam');
-            $table->string('alamt_tnggal_fam');
-            $table->string('bpjs_fam');
-            $table->enum('attachment',['ktp','pict']);
+            $table->integer('employe_id');
+            $table->string('nama_lengkap_family');
+            $table->string('tempat_kelahiran_family');
+            $table->string('tgl_lahir_family');
+            $table->string('alamat_ktp_family');
+            $table->string('alamat_tinggal_family');
+            $table->string('bpjs_family')->nullable();
+            $table->string('npwp_family')->nullable();
+            $table->string('gender_family');
+            $table->string('attachment');
             $table->timestamps();
         });
     }

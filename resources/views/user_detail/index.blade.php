@@ -6,7 +6,8 @@
         $jsonEncodeData = json_encode($userFamily);
         $countDataKeluarga = count($userFamily);
         $index = 0;
-        // var_dump($jsonEncodeData);
+        $status = $userDetail->status;
+        // var_dump($userFamily);
         // die;
     ?>
     <div class="nav-aligen-top mb-4">
@@ -17,12 +18,14 @@
                     Profile
                 </button>
             </li>
+            @if($userDetail->status == 'menikah' || $userDetail->status == '' || $userDetail == NULL)
             <li class="nav-item">
                 <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                     data-bs-target="#navs-top-profile" aria-controls="navs-top-profile" aria-selected="false">
-                    Keluarga
+                    Family
                 </button>
             </li>
+            @endif
         </ul>
         <div class="tab-content">
             <div class="tab-pane fade active show" id="navs-top-home" role="tabpanel">
@@ -64,61 +67,69 @@
                             <input class="form-control" type="email" id="email" name="email" value="{{$userDetail->email}}">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="nip" class="form-label">NIP</label>
-                            <input class="form-control" type="number" name="nip" id="nip" value="{{$userDetail->nip}}">
-                          </div>
-                          <div class="mb-3 col-md-6">
-                            <label for="job_id" class="form-label">Job Possition</label>
-                            <input class="form-control" type="text" id="job_id" name="job_id" value="">
+                            <label for="job" class="form-label">Job Possition</label>
+                            <input class="form-control" type="text" id="job_position" name="job_position" value="{{$userDetail->job_position}}">
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="gender" class="form-label">Gender</label>
-                            <input class="form-control" type="text" name="gender" id="gender" value="">
+                            <input class="form-control" type="text" name="gender" id="gender" value="{{$userDetail->gender}}">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="tempat_kelahiran" class="form-label">Tempat Kelahiran</label>
-                            <input class="form-control" type="text" id="tempat_kelahiran" name="tempat_kelahiran" value="" placeholder="">
+                            <label for="tempat_kelahiran" class="form-label">Place of birth</label>
+                            <input class="form-control" type="text" id="tempat_kelahiran" name="tempat_kelahiran" value="{{$userDetail->tempat_kelahiran}}" placeholder="">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="">
+                            <label for="tanggal_lahir" class="form-label">Date of birth</label>
+                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="{{$userDetail->tanggal_lahir}}">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="email" class="form-label">Alamat KTP</label>
-                            <textarea class="form-control" id="alamat_ktp" name="alamat_ktp" value=""></textarea>
+                            <label for="email" class="form-label">KTP Address</label>
+                            <textarea class="form-control" id="alamat_ktp" name="alamat_ktp">{{$userDetail->alamat_ktp}}</textarea>
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="alamat_tinggal" class="form-label">Alamat Tinggal</label>
-                            <textarea class="form-control" id="alamat_tinggal" name="alamat_tinggal" value=""></textarea>
+                            <label for="alamat_tinggal" class="form-label">Address</label>
+                            <textarea class="form-control" id="alamat_tinggal" name="alamat_tinggal">{{$userDetail->alamat_tinggal}}</textarea>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label class="form-label" for="phoneNumber">No Handphone</label>
                             <div class="input-group input-group-merge">
                               <span class="input-group-text">(+62)</span>
-                              <input type="text" id="no_hp" name="no_hp" class="form-control" placeholder="000 0000 0000">
+                              <input type="text" id="no_hp" name="no_hp" value="{{$userDetail->no_hp}}"class="form-control" placeholder="000 0000 0000">
                             </div>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="organisasi_id" class="form-label">Organization</label>
-                            <input type="text" class="form-control" id="organisasi_id" name="organisasi_id" placeholder="">
+                            <input type="text" class="form-control" id="struktur_id" name="organisasi_id" value="{{$userDetail->organisasi_id}}" placeholder="">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="" class="form-label">Tanggal Bergabung</label>
-                            <input class="form-control" type="date" id="tanggal_bergabung" name="tanggal_bergabung" placeholder="">
+                            <label for="" class="form-label">Join Date</label>
+                            <input class="form-control" type="date" id="tanggal_bergabung" name="tanggal_bergabung" value="{{$userDetail->tanggal_bergabung}}"placeholder="">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="masa_kerja" class="form-label">Masa Kerja</label>
-                            <input type="text" class="form-control" id="masa_kerja" name="masa_kerja" placeholder="">
+                            <label for="masa_kerja" class="form-label">Years of Service</label>
+                            <input type="text" class="form-control" id="masa_kerja" name="masa_kerja" value="{{$userDetail->masa_kerja}}"placeholder="">
                           </div>
-                          <div class="mb-6 col-md-12">
+                          <div class="mb-3 col-md-6">
+                            <label class="form-label" for="bpjsNumber">BPJS</label>
+                              <input type="text" id="bpjs" name="bpjs" class="form-control" value="{{$userDetail->bpjs}}">
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label class="form-label" for="npwpNumber">NPWP</label>
+                              <input type="text" id="npwp" name="npwp" class="form-control" value="{{$userDetail->npwp}}">
+                          </div>
+                          <div class="mb-3 col-md-6">
                             <label for="status" class="form-label">Status</label>
-                            <input class="form-control" type="text" id="status" name="status" placeholder="">
+                            <select name="status" id="status" class="form-control">
+                              <option selected disabled>--Status--</option>
+                              <option value="menikah" <?php if($status == 'menikah'){echo 'selected';} ?>>Married</option>
+                              <option value="belum menikah" <?php if($status == 'belum menikah'){echo 'selected';} ?>>Singgle</option>
+                            </select>
                           </div>
                         </div>
-                        <!-- <div class="mt-2">
-                          <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Update</button>
                           <button type="reset" class="btn btn-outline-secondary">Cancel</button>
-                        </div> -->
+                        </div>
                       </form>
                     </div>
                     <!-- /Account -->
@@ -128,7 +139,18 @@
             <div class="tab-pane fade" id="navs-top-profile" role="tabpanel">
                 <div class="row mb-5">
                 <div class="card mb-4">
-                    <h5 class="card-header">Profile Details Family</h5>
+                    @if($countDataKeluarga > 0)
+                    
+                    <div class="card-header">
+                      <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="d-flex justify-content-end pt-2" style="padding-right: 25px">
+                            <a href="/user-family/create">+ Create New Data</a>
+                          </div>
+                        </div>
+                        <h5 class="col-lg-12 col-md-12 col-sm-12">Profile Details Family</h5>
+                      </div>
+                    </div>
                     <!-- Account -->
                     <div class="card-body">
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
@@ -149,51 +171,50 @@
                       </div>
                     </div>
                     <hr class="my-0">
+                    @endif
                     <div class="card-body">
+                      @if($countDataKeluarga > 0)
                       <form id="formAccountSettings" method="POST" onsubmit="return false">
                         <div class="row">
                         <div class="mb-3 col-md-6">
                             <label for="nameFamily" class="form-label">Name</label>
-                            <input class="form-control" type="text" id="nameFamily" name="nameFamily" value="{{$userFamily[$index]['name']}}">
+                            <input class="form-control" type="text" id="nameFamily" name="nameFamily" value="{{$userFamily[$index]->nama_lengkap_family}}">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="nik" class="form-label">NIK</label>
-                            <input class="form-control" type="text" name="nik" id="nik" value="">
+                            <label for="employe_id" class="form-label">Employe Id</label>
+                            <input class="form-control" type="text" name="employe_id" id="employe_id" value="{{$userFamily[$index]->employe_id}}">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="status" class="form-label">Status</label>
-                            <input class="form-control" type="text" id="status" name="status" value="">
+                            <label for="statusFamily" class="form-label">Status</label>
+                            <input class="form-control" type="text" id="statusFamily" name="statusFamily" value="{{$userFamily[$index]->hubungan}}">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="gender" class="form-label">Gender</label>
-                            <input class="form-control" type="text" name="gender" id="gender" value="">
+                            <label for="gender_family" class="form-label">Gender</label>
+                            <input class="form-control" type="text" name="genderFamily" id="genderFamily" value="{{$userFamily[$index]->gender_family}}">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="tempat_lahir" class="form-label">Tempat Kelahiran</label>
-                            <input class="form-control" type="text" id="tempat_lahir" name="tempat_lahir" value="" placeholder="">
+                            <label for="tempat_lahir_family" class="form-label">Place of birth</label>
+                            <input class="form-control" type="text" id="tempat_lahir_family" name="tempat_lahir_family" value="{{$userFamily[$index]->tempat_kelahiran_family}}" placeholder="">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="tanggal_lahir" class="form-label">Tanggal Lahir</label>
-                            <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="">
+                            <label for="tanggal_lahir_family" class="form-label">Date of birth</label>
+                            <input type="date" class="form-control" id="tanggal_lahir_family" name="tanggal_lahir_family" value="{{$userFamily[$index]->tgl_lahir_family}}">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="email" class="form-label">Alamat KTP</label>
-                            <textarea class="form-control" id="alamat_ktp" name="alamat_ktp" value=""></textarea>
+                            <label for="alamat_ktp" class="form-label">KTP Address</label>
+                            <textarea class="form-control" id="alamat_ktp_family" name="alamat_ktp_family">{{$userFamily[$index]->alamat_ktp_family}}</textarea>
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="alamat" class="form-label">Address</label>
-                            <textarea class="form-control" id="alamat" name="alamat" value=""></textarea>
+                            <label for="alamatTinggal" class="form-label">Address</label>
+                            <textarea class="form-control" id="alamatTinggal" name="alamatTinggal">{{$userFamily[$index]->alamat_tinggal_family}}</textarea>
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label class="form-label" for="phoneNumber">No Handphone</label>
-                            <div class="input-group input-group-merge">
-                              <span class="input-group-text">(+62)</span>
-                              <input type="text" id="no_hp" name="no_hp" class="form-control" placeholder="000 0000 0000">
-                            </div>
+                            <label class="form-label" for="bpjs_family">BPJS</label>
+                              <input type="text" id="bpjs_family" name="bpjs_family" class="form-control" value="{{$userFamily[$index]->bpjs_family}}">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="status" class="form-label">Status</label>
-                            <input class="form-control" type="text" id="status" name="status" placeholder="">
+                            <label class="form-label" for="npwp_family">NPWP</label>
+                              <input type="text" id="npwp_family" name="npwp_family" class="form-control" value="{{$userFamily[$index]->npwp_family}}">
                           </div>
                         </div>
                         <!-- <div class="mt-2">
@@ -201,6 +222,12 @@
                           <button type="reset" class="btn btn-outline-secondary">Cancel</button>
                         </div> -->
                       </form>
+                      @else
+                        <h3 class="text-center">Data Not Found</h3>
+                        <h5 for="" class="text-center">
+                          <a href="/user-family/create">+ Crate Data</a>
+                        </h5> 
+                      @endif
                     </div>
                     <!-- <div class="pagination justify-content-center">
                 <nav aria-label="Page navigation">
@@ -238,9 +265,44 @@
           }
           
           function changeData(data){
+            // change name
             var nama = document.getElementById("nameFamily");
-            var valueName = data['name']
+            var valueName = data.nama_lengkap_family
             nama.setAttribute('value',valueName)
+            // change status
+            var status = document.getElementById("statusFamily");
+            var valueStatus = data.hubungan
+            status.setAttribute('value',valueStatus)
+            //change gender
+            var gender = document.getElementById("genderFamily");
+            var valueGender = data.gender_family
+            gender.setAttribute('value',valueGender)
+            //change tempat lahir
+            var tempat_lahir = document.getElementById("tempat_lahir_family");
+            var valueTempatLahir = data.tempat_kelahiran_family
+            tempat_lahir.setAttribute('value',valueTempatLahir)
+            //change tanggal lahir
+            var tanggal_lahir = document.getElementById("tanggal_lahir_family");
+            var valueTanggalLahir = data.tgl_lahir_family
+            tanggal_lahir.setAttribute('value',valueTanggalLahir)
+            //change bpjs
+            var bpjs_family = document.getElementById("bpjs_family");
+            var valueBPJSFamily = data.bpjs_family
+            bpjs_family.setAttribute('value',valueBPJSFamily)
+            //change npwp
+            var npwp_family = document.getElementById("npwp_family");
+            var valueNPWPFamily = data.npwp_family
+            npwp_family.setAttribute('value',valueNPWPFamily)
+
+
+            // alamat
+            var alamatTinggal = document.getElementById("alamatTinggal");
+            var alamat_tinggalValue = data.alamat_tinggal_family
+            alamatTinggal.innerHTML = alamat_tinggalValue
+            // alamat ktp
+            var alamatKTP = document.getElementById("alamat_ktp_family");
+            var alamat_ktpValue = data.alamat_ktp_family
+            alamatKTP.innerHTML = alamat_ktpValue
             console.log(data)
           }
           

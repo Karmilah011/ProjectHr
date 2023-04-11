@@ -32,6 +32,9 @@ Route::group(['middleware' => ['auth','prevent-back-history','checkRole:admin']]
     Route::put('/user/update/{id}','UserController@update');
     Route::get('/user/delete/{id}', 'UserController@destroy'); 
 
+    Route::get('/user_detail/{id}', 'UserDetailController@index')->name('user_detail.index');
+
+
     //route untuk fcuti
     Route::get('/fcuti', 'FormCutiController@index')->name('fcuti.index');
     Route::get('/fcuti/create', 'FormCutiController@create');
@@ -117,7 +120,7 @@ Route::group(['middleware' => ['auth', 'prevent-back-history']],function(){
     Route::get('/report','ReportController@report')->name('report.index');
     // Route::get('/report/test','ReportController@report')->name('report.index');
       //route untuk karyawan
-      Route::get('/user-detail/{id}', 'UserDetailController@index')->name('user-detail.index');
+      Route::get('/user_detail/{id}', 'UserDetailController@index')->name('user_detail.index');
 
           //route untuk struktur
     Route::get('/struktur', 'StrukturController@index')->name('struktur.index');
@@ -126,5 +129,8 @@ Route::group(['middleware' => ['auth', 'prevent-back-history']],function(){
     Route::get('/struktur/edit/{id}', 'StrukturController@edit');
     Route::put('/struktur/update/{id}', 'StrukturController@update');
     Route::get('/struktur/hapus/{id}', 'StrukturController@destroy');
+
+    Route::get('/user-family/create','UserFamilyController@create')->name('user-family.create');
+    Route::post('/user-family/store','UserFamilyController@store')->name('user-family.store');
 
 });

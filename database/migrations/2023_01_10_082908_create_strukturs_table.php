@@ -18,7 +18,7 @@ class CreateStruktursTable extends Migration
             $table->string('namaorganisasi');
             $table->string('deskorganisasi');
             $table->string('parent');
-            $table->string('status');
+            $table->string('status_struktur');
             $table->timestamps();
         });
     }

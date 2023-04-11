@@ -11,7 +11,7 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Id</th>
+                        <th>Employee Id</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
@@ -22,7 +22,7 @@
                     <tbody class="table-border-bottom-0">
                       <tr>
                         <td>{{$no+1}}</td>
-                        <td>{{$value->no_karyawan}}</td>
+                        <td>{{$value->employe_id}}</td>
                         <td>{{$value->name}}</td>
                         <td>{{$value->email}}</td>
                         <td>{{$value->role}}</td>

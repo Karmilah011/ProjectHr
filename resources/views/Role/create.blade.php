@@ -16,7 +16,7 @@
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameBasic" class="form-label">Role Name</label>
-                                    <input type="text" name="name" id="nameBasic" class="form-control" placeholder="Masukan Role Name">
+                                    <input type="text" name="name" id="nameBasic" class="form-control" placeholder="Masukan Role Name" autocomplete="off">
                                   </div>
                                 </div>
                               <div class="modal-footer">

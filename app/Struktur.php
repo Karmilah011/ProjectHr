@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Struktur extends Model
 {
     protected $table = "strukturs";
-    protected $fillable = ['namaorganisasi', 'deskorganisasi', 'parent', 'status'];
+    protected $fillable = ['namaorganisasi', 'deskorganisasi', 'parent', 'status_struktur'];
 
     protected $primaryKey = "id";
 }

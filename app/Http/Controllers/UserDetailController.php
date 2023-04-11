@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\UserDetail;
 use Illuminate\Http\Request;
-
+use DB;
 class UserDetailController extends Controller
 {
     /**
@@ -14,11 +14,16 @@ class UserDetailController extends Controller
      */
     public function index($employeId)
     {
+        $employeId = (int) $employeId;
         $userDetail = UserDetail::where('employe_id',$employeId)->first();
-        $userFamily = UserDetail::all();
-        // var_dump($userDetail->name);
+
+        $userFamily = DB::table('user_families as a')->select('*','b.hubungan as hubungan')
+                    ->leftjoin('family_types as b','a.id','=','b.user_family_id')
+                    ->where('a.employe_id',$employeId)
+                    ->get();  
+        // dd($userFamily[0]);
         // die;
-        return view('user-detail.index',compact('userDetail','userFamily'));
+        return view('user_detail.index',compact('userDetail','userFamily'));
     }
 
     /**

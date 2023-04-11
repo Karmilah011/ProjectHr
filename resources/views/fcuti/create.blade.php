@@ -14,7 +14,7 @@
                                     <select name="jeniscuti" id="jenis_cuti" class="form-control">
                                       <option value="cuti">Annual Leave</option>
                                       <option value="sakit">Sick leave</option>
-                                      <option value="melahirkan">Lahiran</option>
+                                      <option value="melahirkan">Give Birth To</option>
                                     </select>
                                   </div>
                                 </div>

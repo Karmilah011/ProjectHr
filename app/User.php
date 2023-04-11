@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','role','no_karyawan'
+        'name', 'email', 'password','role','employe_id'
     ];
 
     public function hasRole($role)

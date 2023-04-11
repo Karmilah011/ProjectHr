@@ -15,14 +15,14 @@
                                   @csrf
                                 <div class="row">
                                   <div class="col mb-3">
-                                    <label for="nameBasic" class="form-label">User ID</label>
-                                    <input type="text" name="no_karyawan" id="nameBasic" class="form-control" placeholder="Masukan No Karyawan"/>
+                                    <label for="nameBasic" class="form-label">Employee ID</label>
+                                    <input type="text" name="employe_id" id="nameBasic" class="form-control" autocomplete="off" placeholder="Masukan No Karyawan"/>
                                   </div>
                                 </div>
                                 <div class="row g-2">
                                   <div class="col mb-0">
                                     <label for="emailBasic" class="form-label">Name</label>
-                                    <input type="text" name="name" id="emailBasic" class="form-control" placeholder="Masukan Nama Karyawan">
+                                    <input type="text" name="name" id="emailBasic" class="form-control" autocomplete="off" placeholder="Masukan Nama Karyawan">
                                   </div>
                                   <div class="col mb-0">
                                     <label for="dobBasic" class="form-label">Role</label>
@@ -37,13 +37,13 @@
                                 <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameBasic" class="form-label">Email</label>
-                                    <input type="text" name="email" id="nameBasic" class="form-control" placeholder="xxxx@renos.id">
+                                    <input type="text" name="email" id="nameBasic" class="form-control" autocomplete="off" placeholder="xxxx@renos.id">
                                   </div>
                               </div>
                               <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameBasic" class="form-label">Password</label>
-                                    <input type="password" name="password" id="nameBasic" class="form-control" placeholder="Masukan Password">
+                                    <input type="password" name="password" id="nameBasic" class="form-control" autocomplete="off" placeholder="Masukan Password">
                                   </div>
                               </div>
                               </div>

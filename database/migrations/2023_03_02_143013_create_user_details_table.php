@@ -15,12 +15,12 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
-            $table->string('employe_id');
+            $table->integer('employe_id');
             $table->string('name');
             $table->date('tanggal_lahir')->nullable();
             $table->string('kota')->nullable();
             $table->string('email');
-            $table->string('job_id')->nullable();
+            $table->string('job_position')->nullable();
             $table->string('gender')->nullable();
             $table->string('tempat_kelahiran')->nullable();
             $table->text('alamat_ktp')->nullable();
@@ -29,6 +29,8 @@ class CreateUserDetailsTable extends Migration
             $table->integer('organisasi_id')->nullable();
             $table->string('tanggal_bergabung')->nullable();
             $table->string('masa_kerja')->nullable();
+            $table->string('npwp')->nullable();
+            $table->string('bpjs')->nullable();
             $table->string('status')->nullable();
             $table->string('attachment')->nullable();
             $table->timestamps();

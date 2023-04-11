@@ -15,7 +15,8 @@ class CreateFamilyTypesTable extends Migration
     {
         Schema::create('family_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_detail_id');
+            $table->integer('employe_id');
+            $table->integer('user_family_id');
             $table->enum('hubungan',['istri','anak','suami']);
             $table->timestamps();
         });
