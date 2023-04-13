@@ -15,6 +15,7 @@
                                       <option value="cuti">Annual Leave</option>
                                       <option value="sakit">Sick leave</option>
                                       <option value="melahirkan">Give Birth To</option>
+                                      <option value="haid">Haid</option>
                                     </select>
                                   </div>
                                 </div>

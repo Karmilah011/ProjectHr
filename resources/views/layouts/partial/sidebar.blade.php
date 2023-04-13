@@ -16,6 +16,14 @@
                 <div data-i18n="Analytics">Dashboard</div>
               </a>
             </li>
+            <li class="menu-item @if(Request::url() == route('user_detail.index',Auth::user()->employe_id)) active @endif" id="side-pegawai">
+              <a href="/user_detail/{{Auth::user()->employe_id}}" class="menu-link">
+              <i class="menu-icon">
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAU9JREFUSEvllSFWw0AQhmci0DVgoSfgcQIeNwiCFEfryGKKwtEJDgeiGxzFkUQAN+gN4AZEgwCNyPQV2L6WbJLd9KWGyOyf/faff3aC0PCDDe8POUDHP+8xOpdTMHJ2FoUXt0WHMNHmAJ6gNwBe/9kU32NJG0UAE+3qASa2lSMT7epC9gSNAXhXV29mGCdhsKfWDo9pK3P4GQBaf/SfToY79zeUqvczB54YcFnLxjKY0xIB8ECnR8TTaEhXywF8egHkba1bwKdEklsb4PaptfbFH6ZurUvk+eQC8kPpBGDcj0N6/L5JSmiagXdCI2A+KgMg4HUkqV8L0BGUMvBmxQxLYxm0awGmH/226asO4mTY1rZpUanm21NpDgR1EVg7BBmwl0ga5brIBlCaA+JdPKTuUoCKHGb1X8jAxoGNVjOuF0eGLoN/Dqi4QNbLjf9wJuYo1hk7ZG+qAAAAAElFTkSuQmCC"/>
+            </i>
+              <div data-i18n="Basic">Employee Data</div>
+              </a>
+            </li>
             <li class="menu-item @if(Request::url() == route('report.index')) active @endif" id="side-report">
               <a href="/report" class="menu-link">
               <i class='bx bxs-report menu-icon'></i>

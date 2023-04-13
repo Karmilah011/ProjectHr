@@ -15,7 +15,7 @@ class CreateFormCutisTable extends Migration
     {
         Schema::create('form_cutis', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->nullable();
+            $table->integer('employe_id')->nullable();
             $table->integer('leave_type')->nullable();
             $table->integer('leave_master_id')->nullable();
             $table->string('alsncuti')->nullable();

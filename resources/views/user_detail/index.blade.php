@@ -247,7 +247,7 @@
             </div> -->
                   <div class="pagination justify-content-center">
                     @foreach($userFamily as $key => $value)
-                      <button class="btn btn-primary" id="paginate" value="{{$key}}" onclick="return pagination({{$key}},{{$jsonEncodeData}})">
+                      <button class="btn btn-primary" style = "margin-right:5px" id="paginate" value="{{$key}}" onclick="return pagination({{$key}},{{$jsonEncodeData}})">
                         {{$key+1}}
                       </button>
                     @endforeach

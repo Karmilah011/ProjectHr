@@ -15,8 +15,8 @@ class CreateLeaveMastersTable extends Migration
     {
         Schema::create('leave_masters', function (Blueprint $table) {
             $table->id();
-            $table->integer('leave_type');
-            $table->enum('day',['annual','effectivedate']);
+            $table->string('leave_type');
+            $table->integer('day');
             $table->timestamps();
         });
     }
