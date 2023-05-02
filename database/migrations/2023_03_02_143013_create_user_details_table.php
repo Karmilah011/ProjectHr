@@ -26,7 +26,7 @@ class CreateUserDetailsTable extends Migration
             $table->text('alamat_ktp')->nullable();
             $table->text('alamat_tinggal')->nullable();
             $table->string('no_hp')->nullable();
-            $table->integer('organisasi_id')->nullable();
+            $table->integer('struktur_id')->nullable();
             $table->string('tanggal_bergabung')->nullable();
             $table->string('masa_kerja')->nullable();
             $table->string('npwp')->nullable();

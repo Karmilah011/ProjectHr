@@ -18,7 +18,7 @@
                     Profile
                 </button>
             </li>
-            @if($userDetail->status == 'menikah' || $userDetail->status == '' || $userDetail == NULL)
+            @if($userDetail->status == 'menikah')
             <li class="nav-item">
                 <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
                     data-bs-target="#navs-top-profile" aria-controls="navs-top-profile" aria-selected="false">
@@ -35,24 +35,24 @@
                     <!-- Account -->
                     <div class="card-body">
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
-                        <img src="{{asset('admin/assets/img/avatars/1.png')}}" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
-                        <div class="button-wrapper">
+                      <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" style="width:100px"class="img-fluid" alt="">
+
+                        <!-- <img src="{{asset('admin/assets/img/user.jpg')}}" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar"> -->
+                        <!-- <div class="button-wrapper">
                           <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                             <span class="d-none d-sm-block">Upload new photo</span>
                             <i class="bx bx-upload d-block d-sm-none"></i>
                             <input type="file" id="upload" class="account-file-input" hidden="" accept="image/png, image/jpeg">
                           </label>
-                          <!-- <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                            <i class="bx bx-reset d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Reset</span>
-                          </button> -->
                           <p class="text-muted mb-0">Allowed JPG AND PNG</p>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                     <hr class="my-0">
                     <div class="card-body">
-                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                      <form id="formAccountSettings" action="{{route ('user_detail.update',$userDetail->id)}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
                         <div class="row">
                           <div class="mb-3 col-md-6">
                             <label for="name" class="form-label">Name</label>
@@ -60,20 +60,26 @@
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="employe_id" class="form-label">Employe Id</label>
-                            <input class="form-control" type="text" name="employe_id" id="employe_id" value="{{$userDetail->employe_id}}">
+                            <input class="form-control" type="text" name="" id="employe_id" value="{{$userDetail->employe_id}}" disabled>
+                            <input class="form-control" type="hidden" name="employe_id" id="employe_id" value="{{$userDetail->employe_id}}">
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="email" class="form-label">Email</label>
-                            <input class="form-control" type="email" id="email" name="email" value="{{$userDetail->email}}">
+                            <input class="form-control" type="email" id="email" name="email" value="{{$userDetail->email}}" disabled>
+                            <input class="form-control" type="hidden" name="email" id="email" value="{{$userDetail->email}}">
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="job" class="form-label">Job Possition</label>
                             <input class="form-control" type="text" id="job_position" name="job_position" value="{{$userDetail->job_position}}">
                           </div>
-                          <div class="mb-3 col-md-6">
-                            <label for="gender" class="form-label">Gender</label>
-                            <input class="form-control" type="text" name="gender" id="gender" value="{{$userDetail->gender}}">
-                          </div>
+                          <div class="col-md-6 mb-0">
+                          <label for="gender" class="form-label">Gender</label>
+                          <select name="gender" id="gender" class="form-control">
+                            <option disabled selected>Gender</option>
+                            <option value="laki-laki">Laki-Laki</option>
+                            <option value="wanita">Wanita</option>
+                          </select>
+                        </div>
                           <div class="mb-3 col-md-6">
                             <label for="tempat_kelahiran" class="form-label">Place of birth</label>
                             <input class="form-control" type="text" id="tempat_kelahiran" name="tempat_kelahiran" value="{{$userDetail->tempat_kelahiran}}" placeholder="">
@@ -94,12 +100,12 @@
                             <label class="form-label" for="phoneNumber">No Handphone</label>
                             <div class="input-group input-group-merge">
                               <span class="input-group-text">(+62)</span>
-                              <input type="text" id="no_hp" name="no_hp" value="{{$userDetail->no_hp}}"class="form-control" placeholder="000 0000 0000">
+                              <input type="text" id="no_hp" name="no_hp" value="<?php $nohp = str_replace('+62','',$userDetail->no_hp); echo $nohp; ?>" class="form-control" onkeypress="return hanyaAngka(event)"/>
                             </div>
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="organisasi_id" class="form-label">Organization</label>
-                            <input type="text" class="form-control" id="struktur_id" name="organisasi_id" value="{{$userDetail->organisasi_id}}" placeholder="">
+                            <label for="struktur_id" class="form-label">Organization</label>
+                            <input type="text" class="form-control" id="struktur_id" name="struktur_id" value="{{$userDetail->struktur_id}}" placeholder="">
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="" class="form-label">Join Date</label>
@@ -120,12 +126,32 @@
                           <div class="mb-3 col-md-6">
                             <label for="status" class="form-label">Status</label>
                             <select name="status" id="status" class="form-control">
-                              <option selected disabled>--Status--</option>
+                              <option disabled <?php if($status != 'menikah' && $status != 'belum menikah'){echo 'selected';} ?> ?>Select Status</option>
                               <option value="menikah" <?php if($status == 'menikah'){echo 'selected';} ?>>Married</option>
-                              <option value="belum menikah" <?php if($status == 'belum menikah'){echo 'selected';} ?>>Singgle</option>
+                              <option value="belum menikah" <?php if($status == 'belum menikah'){echo 'selected';} ?>>Single</option>
                             </select>
                           </div>
                         </div>
+                        <div class="col-md-6 mb-0">
+                          <label for="dobBasic" class="form-label">Select Attachment</label>
+                          <select name="select_attachment" id="select_attachment" class="form-control" onChange="selectAttachment()">
+                            <option disabled selected>Select Attachment</option>
+                            <option value="ktp">KTP</option>
+                            <option value="kk">KK</option>
+                            <option value="bpjs">BPJS</option>
+                          </select>
+                        </div>
+                        <div class="col-md-6 mb-0" id="attachment" style="display:none;">
+                          <label for="dobBasic" class="form-label"></label>
+                            <input type="file" name="attachment" class="form-control">
+                        </div>
+                        @if(isset($userDetail->attachment) && $userDetail != null)
+                        <div class="col-md-6 mb-0" id="">
+                          <a href="{{asset('files/attachment/'.$userDetail->attachment)}}" target="_blank">
+                            <label>{{$userDetail->attachment}}</label>
+                          </a>
+                        </div>
+                        @endif
                         <div class="mt-2">
                           <button type="submit" class="btn btn-primary me-2">Update</button>
                           <button type="reset" class="btn btn-outline-secondary">Cancel</button>
@@ -154,20 +180,7 @@
                     <!-- Account -->
                     <div class="card-body">
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
-                        <img src="{{asset('admin/assets/img/avatars/1.png')}}" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
-                        <!-- <div class="button-wrapper">
-                          <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                            <span class="d-none d-sm-block">Upload new photo</span>
-                            <i class="bx bx-upload d-block d-sm-none"></i>
-                            <input type="file" id="upload" class="account-file-input" hidden="" accept="image/png, image/jpeg">
-                          </label>
-                          <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                            <i class="bx bx-reset d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Reset</span>
-                          </button>
-
-                          <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-                        </div> -->
+                        <img src="{{asset('admin/assets/img/user.jpg')}}" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
                       </div>
                     </div>
                     <hr class="my-0">
@@ -259,6 +272,9 @@
         @endsection
 
         <script>
+          
+          // document.getElementById('attachment').style.display = "none";
+
           function pagination(key,data){
             var indexData = data[key]
             changeData(indexData);
@@ -304,6 +320,31 @@
             var alamat_ktpValue = data.alamat_ktp_family
             alamatKTP.innerHTML = alamat_ktpValue
             console.log(data)
+          }
+
+          function hanyaAngka(evt) {
+              var charCode = (evt.which) ? evt.which : event.keyCode
+              if (charCode > 31 && (charCode < 48 || charCode > 57))
+        
+                return false;
+              return true;
+            }
+
+
+          // console.log(select_attachment)
+          // var select_attachment = document.getElementById("select_attachment");
+          // select_attachment.addEventListener('change',(event)=>{
+          //   console.log(event.target.value);
+
+          // })
+
+          function selectAttachment(){
+            var x = document.getElementById("select_attachment");
+            if(x.value != null && x.value != undefined){
+              console.log(x.value)
+              document.getElementById("attachment").style.display = "block";
+
+            }
           }
           
         </script>

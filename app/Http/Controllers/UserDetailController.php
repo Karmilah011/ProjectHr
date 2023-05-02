@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\UserDetail;
 use Illuminate\Http\Request;
 use DB;
+use App\User;
 class UserDetailController extends Controller
 {
     /**
@@ -76,9 +77,48 @@ class UserDetailController extends Controller
      * @param  \App\UserDetail  $userDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserDetail $userDetail)
+    public function update(Request $request, $id)
     {
-        //
+        // $request->validate([
+        //     'ket_tidak_mampu' => 'mimes:pdf,jpg,jpeg,png|max:10240'
+        // ]);
+        $userDetail = UserDetail::find($id);
+        $userDetail->no_hp = "+62".$request->no_hp;
+        $userDetail->name = $request->name;
+        $userDetail->employe_id = $request->employe_id;
+        $userDetail->tanggal_lahir = $request->tanggal_lahir;
+        $userDetail->kota = $request->kota;
+        $userDetail->email = $request->email;
+        $userDetail->job_position = $request->job_position;
+        $userDetail->gender = $request->gender;
+        $userDetail->tempat_kelahiran = $request->tempat_kelahiran;
+        $userDetail->alamat_ktp = $request->alamat_ktp;
+        $userDetail->alamat_tinggal = $request->alamat_tinggal;
+        $userDetail->struktur_id = $request->struktur_id;
+        $userDetail->tanggal_bergabung = $request->tanggal_bergabung;
+        $userDetail->masa_kerja = $request->masa_kerja;
+        $userDetail->npwp = $request->npwp;
+        $userDetail->bpjs = $request->bpjs;
+        $userDetail->status = $request->status;
+        if(isset($request->attachment) && $request->attachment != null){
+        $attachment = $request->attachment;
+        // dd($attachment);
+        $attachSelect = $request->select_attachment;
+        $extension = 
+        $v_attachment = $attachSelect."_".time().rand(100,999).".".$request->file('attachment')->extension();
+        $userDetail->attachment = $v_attachment;
+        $attachment->move(public_path().'/files/attachment/',$v_attachment);
+        }
+        $userDetail->save();
+
+        $user = User::where('employe_id',$userDetail->employe_id)->first();
+        // dd($user);
+        $user = User::find($user->id);
+        $user->name = $request->name;
+        $user->save();
+
+        return redirect()->route('user_detail.index',$userDetail->employe_id);
+
     }
 
     /**

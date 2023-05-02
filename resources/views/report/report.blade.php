@@ -40,18 +40,25 @@
                         <th>Status</th>
                       </tr>
                     </thead>
+                    <?php $countData = count($approval); ?>
+                    @if($countData < 1)
+                      <tbody class="table-border-bottom" >
+                        <tr>
+                          <td colspan="11" height="200px">
+                            <h4 align="center">
+                              Data Not Found
+                            </h4>
+                          </td>
+                        </tr>
+                      </tbody>
+                    @else
                     <tbody class="table-border-bottom-0">
+                    @foreach($approval as $no => $value)
                       <tr>
-                        <td>1</td>
-                        <td>000000</td>
-                        <td>Mila</td>
-                        <td>Annual Leave</td>
-                        <td>Holiday</td>
-                        <td>1 January 2023</td>
-                        <td>3 January 2023</td>
-                        <td><span class="badge bg-label-primary me-1">Approved</span></td>
                       </tr>
+                      @endforeach
                     </tbody>
+                    @endif
                   </table>
                 </div>
     </div>

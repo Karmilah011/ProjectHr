@@ -15,11 +15,12 @@ class CreateApprovalsTable extends Migration
     {
         Schema::create('approvals', function (Blueprint $table) {
             $table->id();
-            $table->string('jeniscuti');
-            $table->string('nama_karyawan');
-            $table->string('tgl_pengajuan');
-            $table->string('tgl_mulai');
-            $table->string('tgl_selesai');
+            $table->string('leave_master_id');
+            $table->integer('employe_id')->nullable();
+            $table->text('alasancuti')->nullable();
+            $table->string('tgl_pengajuan')->nullable();
+            $table->string('tgl_mulai')->nullable();
+            $table->string('tgl_selesai')->nullable();
             $table->enum('approved',['setuju','tolak','batal','menunggu']);
             $table->timestamps();
         });

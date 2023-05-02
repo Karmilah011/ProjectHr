@@ -49,6 +49,7 @@ class UserFamilyController extends Controller
         $checkUserFamily = UserFamily::where('employe_id',Auth::user()->employe_id)->get();
         if($checkUserFamily){
             UserFamily::where('employe_id',Auth::user()->employe_id)->delete();
+            FamilyType::where('employe_id',Auth::user()->employe_id)->delete();
         }
 
         $userFamily = new UserFamily;

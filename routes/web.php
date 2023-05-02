@@ -32,25 +32,6 @@ Route::group(['middleware' => ['auth','prevent-back-history','checkRole:admin']]
     Route::put('/user/update/{id}','UserController@update');
     Route::get('/user/delete/{id}', 'UserController@destroy'); 
 
-    Route::get('/user_detail/{id}', 'UserDetailController@index')->name('user_detail.index');
-
-
-    //route untuk fcuti
-    Route::get('/fcuti', 'FormCutiController@index')->name('fcuti.index');
-    Route::get('/fcuti/create', 'FormCutiController@create');
-    Route::post('/fcuti/store', 'FormCutiController@store');
-    Route::get('/fcuti/edit/{id}', 'FormCutiController@edit');
-    Route::put('/fcuti/update/{id}', 'FormCutiController@update');
-    Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
-
-    //route untuk scuti
-    Route::get('/scuti', 'SisaCutiController@index')->name('scuti.index');
-    Route::get('/scuti/create', 'SisaCutiController@create');
-    Route::post('/scuti/store', 'SisaCutiController@store');
-    Route::get('/scuti/edit/{id}', 'SisaCutiController@edit');
-    Route::put('/scuti/update/{id}', 'SisaCutiController@update');
-    Route::get('/scuti/hapus/{id}', 'SisaCutiController@destroy');
-
     //route untuk job
     Route::get('/job', 'JobController@index')->name('job.index');
     Route::post('/job/store', 'JobController@store');
@@ -65,15 +46,6 @@ Route::group(['middleware' => ['auth','prevent-back-history','checkRole:admin']]
 
 Route::group(['middleware' => ['auth', 'checkRole:approver', 'prevent-back-history']],function(){
     Route::get('/dashboard-approver','DashboardController@dashboardapprover')->name('dashboard.dashboard-approver');
-    //route untuk user
-
-    //route untuk fcuti
-    Route::get('/fcuti', 'FormCutiController@index')->name('fcuti.index');
-    Route::get('/fcuti/create', 'FormCutiController@create');
-    Route::post('/fcuti/store', 'FormCutiController@store');
-    Route::get('/fcuti/edit/{id}', 'FormCutiController@edit');
-    Route::put('/fcuti/update/{id}', 'FormCutiController@update');
-    Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
 
     //route untuk scuti
     Route::get('/scuti', 'SisaCutiController@index')->name('scuti.index');
@@ -96,24 +68,6 @@ Route::group(['middleware' => ['auth', 'checkRole:approver', 'prevent-back-histo
 Route::group(['middleware' => ['auth', 'checkRole:user', 'prevent-back-history']],function(){
     Route::get('/dashboard','DashboardController@dashboard')->name('dashboard');
 
-    //route untuk fcuti
-    Route::get('/fcuti', 'FormCutiController@index')->name('fcuti.index');
-    Route::get('/fcuti/create', 'FormCutiController@create');
-    Route::post('/fcuti/store', 'FormCutiController@store');
-    Route::get('/fcuti/edit/{id}', 'FormCutiController@edit');
-    Route::put('/fcuti/update/{id}', 'FormCutiController@update');
-    Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
-
-
-    //route untuk scuti
-    Route::get('/scuti', 'SisaCutiController@index')->name('scuti.index');
-    Route::get('/scuti/create', 'SisaCutiController@create');
-    Route::post('/scuti/store', 'SisaCutiController@store');
-    Route::get('/scuti/edit/{id}', 'SisaCutiController@edit');
-    Route::put('/scuti/update/{id}', 'SisaCutiController@update');
-    Route::get('/scuti/hapus/{id}', 'SisaCutiController@destroy');
-
-
 });
 
 Route::group(['middleware' => ['auth', 'prevent-back-history']],function(){
@@ -121,6 +75,7 @@ Route::group(['middleware' => ['auth', 'prevent-back-history']],function(){
     // Route::get('/report/test','ReportController@report')->name('report.index');
       //route untuk karyawan
       Route::get('/user_detail/{id}', 'UserDetailController@index')->name('user_detail.index');
+      Route::put('/user_detail/{id}','UserDetailController@update')->name('user_detail.update');
 
           //route untuk struktur
     Route::get('/struktur', 'StrukturController@index')->name('struktur.index');
@@ -132,5 +87,13 @@ Route::group(['middleware' => ['auth', 'prevent-back-history']],function(){
 
     Route::get('/user-family/create','UserFamilyController@create')->name('user-family.create');
     Route::post('/user-family/store','UserFamilyController@store')->name('user-family.store');
+
+    //route untuk fcuti
+    Route::get('/fcuti/{id}', 'FormCutiController@index')->name('fcuti.index');
+    Route::get('/fcuti/create', 'FormCutiController@create');
+    Route::post('/fcuti/store', 'FormCutiController@store');
+    Route::get('/fcuti/edit/{id}', 'FormCutiController@edit');
+    Route::put('/fcuti/update/{id}', 'FormCutiController@update');
+    Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
 
 });

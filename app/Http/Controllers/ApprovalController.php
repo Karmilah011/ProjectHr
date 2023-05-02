@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Approval;
+use App\Form_cuti;
+use DB;
+use Auth;
+use App\User;
 use Illuminate\Http\Request;
 
 class ApprovalController extends Controller
@@ -14,7 +18,11 @@ class ApprovalController extends Controller
      */
     public function index()
     {
-     return view('approval.index');   
+        $approval = DB::table('approvals as a')->select('*', 'a.created_at as date_fill', "b.name as name",'c.leave_type as leave')
+        ->join('users as b', 'b.employe_id', "=", "a.employe_id")
+        ->join('leave_masters as c', 'c.id','=','a.leave_master_id')
+        ->get();
+        return view('approval.index',compact('approval')); 
     }
 
     /**
@@ -67,9 +75,17 @@ class ApprovalController extends Controller
      * @param  \App\Approval  $approval
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Approval $approval)
+    public function update(Request $request, $id)
     {
-        //
+        $approval = Approval::find($id)->first();
+        $approval->approved = $request->approved;
+        $approval->save();
+
+        $formCuti = Form_cuti::find($id);
+        $formCuti->approval_id = $approval->id;
+        $formCuti->save();
+
+        return redirect('/approval');
     }
 
     /**
@@ -78,8 +94,9 @@ class ApprovalController extends Controller
      * @param  \App\Approval  $approval
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Approval $approval)
+    public function destroy($id)
     {
-        //
+        Approval::destroy($id);
+        return redirect('/approval');
     }
 }
