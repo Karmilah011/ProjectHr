@@ -21,6 +21,7 @@ class CreateApprovalsTable extends Migration
             $table->string('tgl_pengajuan')->nullable();
             $table->string('tgl_mulai')->nullable();
             $table->string('tgl_selesai')->nullable();
+            $table->string('attachment')->nullable();
             $table->enum('approved',['setuju','tolak','batal','menunggu']);
             $table->timestamps();
         });

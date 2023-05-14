@@ -6,6 +6,7 @@ use App\UserFamily;
 use Auth;
 use App\FamilyType;
 use App\UserDetail;
+use DB;
 use Illuminate\Http\Request;
 
 class UserFamilyController extends Controller
@@ -28,8 +29,12 @@ class UserFamilyController extends Controller
     public function create()
     {
         $data = UserFamily::where('employe_id',Auth::user()->employe_id)->get();
-        $familyType = FamilyType::all();
-        // dd($data[0]->nama_lengkap_family);
+        // $familyType = DB::where('employe_id',Auth::user()->employe_id)->get();
+        $familyType = DB::table('family_types as a')
+            ->select('a.*','b.gender_family as gender')
+            ->join('user_families as b','a.user_family_id','=','b.id')
+            ->where('a.employe_id',Auth::user()->employe_id)->get();
+        // dd($data);
         return view('user_family.create',compact('data','familyType'));
     }
 

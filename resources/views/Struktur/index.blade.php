@@ -12,64 +12,33 @@
                       <tr>
                         <th>No</th>
                         <th>Organization Name</th>
+                        <th>Deskripsi</th>
                         <th>Parent</th>
                         <th>Status</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table table-border-bottom-0">
-                      <tr>
-                        <td>1</td>
-                        <td>MD</td>
-                        <td>-</td>
-                        <td><span class="badge bg-label-danger me-1">Close</span></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                              <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-                            </div>
-                          </div>
-                        </td>
-                        </tr>
+                      @foreach($struktur as $no => $value)
                         <tr>
-                        <td>2</td>
-                        <td>Commerce and marketing</td>
-                        <td>MD</td>
-                        <td><span class="badge bg-label-primary me-1">Active</span></td>
-                        <td>
-                          <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                              <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                              <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                              <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                          <td>{{ $no+1 }}</td>
+                          <td>{{ $value->namaorganisasi }}</td>
+                          <td>{{ $value->deskorganisasi }}</td>
+                          <td>{{ $value->parent }}</td>
+                          <td><span class="badge @if($value->status_struktur == 'active') bg-label-success @else bg-label-danger @endif">
+                            @if($value->status_struktur == 'active') Active @else Non Active @endif
+                          </span></td>
+                          <td>
+                          <span class="btn">
+                            <a href="/struktur/hapus/{{$value->id}}" data-id="{{$value->id}}">
+                              <i class='bx bx-trash'></i>
+                            </a>
+                          </span>
+                          </td>
+                        </tr>
+                      @endforeach
                     </tbody>
                   </table>
-                  <br>
-                  <div class="pagination justify-content-center">
-                <nav aria-label="Page navigation">
-                <ul class="pagination pagination-round">
-                <li class="page-item active">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">3</a>
-                </li>
-              </ul>
-            </nav>
-                </div>
                 </div>
                 @include('struktur.create')
     </div>

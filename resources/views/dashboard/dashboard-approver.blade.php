@@ -6,7 +6,7 @@
                   <div class="card bg-secondary text-white mb-3">
                     <div class="card-header">Approval Request</div>
                     <div class="card-body">
-                      <h5 class="card-title text-white">2 Task</h5>
+                      <h5 class="card-title text-white">{{$request_approval}} Task</h5>
                     </div>
                   </div>
                 </div>

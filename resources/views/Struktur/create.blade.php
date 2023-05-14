@@ -29,11 +29,11 @@
                                     <label for="dobBasic" class="form-label">Organization Parent</label>
                                     <select name="parent" id="parentOption" class="form-control">
                                       <option value="" Disabled>Parent</option>
-                                      <option value="md">MD</option>
-                                      <option value="tech">Tech</option>
-                                      <option value="product">Product & Tech</option>
+                                      <option value="MD">MD</option>
+                                      <option value="TECH">Tech</option>
+                                      <option value="Product & Tech">Product & Tech</option>
                                     </select>
-                                    <input class="form-check-input" type="checkbox" value = "true" id="topParentCheck">
+                                    <input class="form-check-input" type="checkbox" value = "true" id="topParentCheck" name="topParent">
                                       <label class="form-check-label" for="flexCheckDefault">
                                         Top Parent
                                       </label>
@@ -44,7 +44,7 @@
                                   <div class="col mb-3">
                                     <label for="nameBasic" class="form-label">Status</label>
                                     <div class="form-check form-switch mb-2">
-                                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
+                                      <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="" name="status_struktur" value="active">
                                       <label class="form-check-label" for="flexSwitchCheckChecked">Active</label>
                                     </div>
                                   </div>

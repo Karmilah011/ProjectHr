@@ -27,7 +27,7 @@
                                   <div class="col mb-0">
                                     <label for="dobBasic" class="form-label">Role</label>
                                     <select name="role" id="roleOption" class="form-control">
-                                      <option value="" Disabled>Role</option>
+                                      <option value="" disabled selected>Role</option>
                                       <option value="admin">Admin</option>
                                       <option value="approver">Approver</option>
                                       <option value="user">User</option>

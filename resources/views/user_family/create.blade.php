@@ -25,8 +25,12 @@
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="gender_family" class="form-label">Gender</label>
-                    <input class="form-control" type="text" name="genderFamily1" id="genderFamily1" autocomplete="off"
-                        value="<?php if(isset($data[0]->gender_family)){echo $data[0]->gender_family;}?>">
+                    
+                    <select name="genderFamily1" id="genderFamily1" class="form-control">
+                             <option value=""></option>
+                             <option value="man" <?php if(isset($familyType[0]->gender) && $familyType[0]->gender == 'man'){echo "selected";} ?>>Man</option>
+                             <option value="woman" <?php if(isset($familyType[0]->gender) && $familyType[0]->gender == 'woman'){echo "selected";} ?>>Woman</option>
+                    </select>
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="tempat_lahir_family" class="form-label">Tempat Kelahiran</label>
@@ -84,8 +88,11 @@
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="gender_family" class="form-label">Gender</label>
-                    <input class="form-control" type="text" name="genderFamily2" id="genderFamily2" autocomplete="off"
-                        value="<?php if(isset($data[1]->gender_family)){echo $data[1]->gender_family;}?>">
+                    <select name="genderFamily2" id="genderFamily2" class="form-control">
+                             <option value=""></option>
+                             <option value="man" <?php if(isset($familyType[0]->gender) && $familyType[0]->gender == 'man'){echo "selected";} ?>>Man</option>
+                             <option value="woman" <?php if(isset($familyType[0]->gender) && $familyType[0]->gender == 'woman'){echo "selected";} ?>>Woman</option>
+                    </select>
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="tempat_lahir_family" class="form-label">Tempat Kelahiran</label>
@@ -149,8 +156,11 @@
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="gender_family" class="form-label">Gender</label>
-                    <input class="form-control" type="text" name="genderFamily3" id="genderFamily3" autocomplete="off"
-                        value="<?php if(isset($data[2]->gender_family)){echo $data[2]->gender_family;}?>">
+                    <select name="genderFamily3" id="genderFamily3" class="form-control">
+                             <option value=""></option>
+                             <option value="man" <?php if(isset($familyType[0]->gender) && $familyType[0]->gender == 'man'){echo "selected";} ?>>Man</option>
+                             <option value="woman" <?php if(isset($familyType[0]->gender) && $familyType[0]->gender == 'woman'){echo "selected";} ?>>Woman</option>
+                    </select>
                 </div>
                 <div class="mb-3 col-md-12">
                     <label for="tempat_lahir_family" class="form-label">Tempat Kelahiran</label>

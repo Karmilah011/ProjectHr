@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="card">
-                <div class="d-flex justify-content-start mt-4" style="margin-left: 25px">
+                <!-- <div class="d-flex justify-content-start mt-4" style="margin-left: 25px">
                     <a href="" class="btn btn-primary"><i class='bx bxs-printer'></i></a>
                     <a href="" class="btn btn-primary ml-2" style="margin-left: 5px;"><i class='bx bxs-file-pdf'></i></a>
                     <div class="col-sm-2 ml-2" style="margin-left: 6px">
@@ -25,13 +25,12 @@
                             <i class='bx bx-search-alt'></i>
                           </button> --}}
                       </div>
-                </div>
+                </div> -->
                 <div class="table-responsive text-nowrap">
                   <table class="table">
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>User_ID</th>
                         <th>Name</th>
                         <th>Leave Type</th>
                         <th>Reason for Leave</th>
@@ -55,6 +54,19 @@
                     <tbody class="table-border-bottom-0">
                     @foreach($approval as $no => $value)
                       <tr>
+                            <td>{{ $no+1 }}</td>
+                            <td>{{ $value->name }}</td>
+                            <td>{{ $value->leave }}</td>
+                            <td>{{ $value->alasancuti }}</td>
+                            <td>{{ $value->tgl_mulai }}</td>
+                            <td>{{ $value->tgl_selesai }}</td>
+                            <td>
+                                @if($value->approved == 'setuju')
+                                    <span class="badge bg-label-success">Approved</span>
+                                @elseif($value->approved == 'tolak' || $value->approved == 'batal')
+                                    <span class="badge bg-label-danger">Rejected</span>
+                                @endif
+                            </td>
                       </tr>
                       @endforeach
                     </tbody>

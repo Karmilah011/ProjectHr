@@ -19,11 +19,12 @@ class FormCutiController extends Controller
      */
     public function index()
     {
-        $fcuti = DB::table('form_cutis as a')->select('*', 'a.created_at as date_fill','b.approved as status', 'c.leave_type as leave')->where('a.employe_id',Auth::user()->employe_id)
+        $fcuti = DB::table('form_cutis as a')->select('a.*', 'a.created_at as date_fill','b.approved as status', 'b.approved as approved','c.leave_type as leave')->where('a.employe_id',Auth::user()->employe_id)
         ->join('approvals as b','b.id','=','a.approval_id')
         ->join('leave_masters as c', 'c.id','=','a.leave_master_id')
         ->get();
         // $fcuti = Form_cuti::all();
+        // dd($fcuti);
         $user = User::where('role','approver')->get();
         $leave_master = LeaveMaster::all();
         return view('fcuti.index', compact('fcuti','leave_master','user'));
@@ -84,8 +85,7 @@ class FormCutiController extends Controller
                 $approval->leave_master_id = $request->leave_master_id;
                 $approval->alasancuti = $request->alsncuti;
                 $approval->employe_id = Auth::user()->employe_id;
-                $approval->tgl_pengajuan = new Date;
-                $approval->attachment = $v_attachment;
+                $approval->tgl_pengajuan = time();
                 $approval->approved = 'setuju';
                 $approval->save();
                 break;

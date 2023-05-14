@@ -72,6 +72,8 @@ Route::group(['middleware' => ['auth', 'checkRole:user', 'prevent-back-history']
 
 Route::group(['middleware' => ['auth', 'prevent-back-history']],function(){
     Route::get('/report','ReportController@report')->name('report.index');
+    Route::get('/report/{id}','ReportController@reportID')->name('report.indexID');
+
     // Route::get('/report/test','ReportController@report')->name('report.index');
       //route untuk karyawan
       Route::get('/user_detail/{id}', 'UserDetailController@index')->name('user_detail.index');
@@ -93,7 +95,7 @@ Route::group(['middleware' => ['auth', 'prevent-back-history']],function(){
     Route::get('/fcuti/create', 'FormCutiController@create');
     Route::post('/fcuti/store', 'FormCutiController@store');
     Route::get('/fcuti/edit/{id}', 'FormCutiController@edit');
-    Route::put('/fcuti/update/{id}', 'FormCutiController@update');
+    Route::put('/fcuti/update/{id}', 'ApprovalController@update2');
     Route::get('/fcuti/hapus/{id}', 'FormCutiController@destroy');
 
 });

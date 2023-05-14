@@ -15,10 +15,10 @@ class CreateStruktursTable extends Migration
     {
         Schema::create('strukturs', function (Blueprint $table) {
             $table->id();
-            $table->string('namaorganisasi');
-            $table->string('deskorganisasi');
-            $table->string('parent');
-            $table->string('status_struktur');
+            $table->string('namaorganisasi')->nullable();
+            $table->string('deskorganisasi')->nullable();
+            $table->string('parent')->nullable();
+            $table->string('status_struktur')->nullable();
             $table->timestamps();
         });
     }

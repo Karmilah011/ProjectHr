@@ -19,6 +19,7 @@
                         <th>Date of Filing</th>
                         <th>Start Date</th>
                         <th>Date of Completion</th>
+                        <th>Sum Day</th>
                         <th>Status</th>
                         <th>Actions</th>
                       </tr>
@@ -32,6 +33,7 @@
                         <td>{{$value->date_fill}}</td>
                         <td>{{$value->tanggalmulai}}</td>
                         <td>{{$value->tanggalselesai}}</td>
+                        <td>{{$value->jhari}}</td>
                        <td>
                        <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog" role="document">
@@ -56,7 +58,7 @@
                                   <div class="row">
                                     <div class="col mb-3">
                                       <label for="nameBasic" class="form-label">Start Date</label>
-                                      <input type="text" name="tanggalmulai" value="{{$value->tgl_mulai}}" id="nameBasic" class="form-control" placeholder="">
+                                      <input type="text" name="tanggalmulai" value="{{$value->tanggalmulai}}" id="nameBasic" class="form-control" placeholder="">
                                     </div>
                                   </div>
                                   <div class="row">
@@ -75,14 +77,28 @@
                               </div>
                             </div>
                           </div>
-                        <span class="badge @if($value->status == 'setuju') bg-label-success @elseif($value->status == 'menunggu') bg-label-warning @else bg-label-danger @endif">
-                            @if($value->status == 'setuju') Approved @elseif($value->status == 'menunggu') Waiting @else Reject @endif
+                        <span class="badge @if($value->status == 'setuju') bg-label-success @elseif($value->status == 'menunggu') bg-label-warning @elseif($value->status == 'batal') bg-label-danger @else bg-label-danger @endif">
+                            @if($value->status == 'setuju') Approved @elseif($value->status == 'menunggu') Waiting @elseif($value->status == 'batal') Batal @elseif($value->status == 'tolak') Reject @else none @endif
                           </span>
                         </td>
                         <td>
+                          <form action="/fcuti/update/{{$value->id}}" method="POST">
+                            @csrf
+                            @method('PUT')
                           <button type="button" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#basicModal">
                           <i class='bx bx-folder-open' style='color:#ffffff' ></i>
                           </button>
+                          @if($value->approved != 'menunggu')
+                          <a href="/fcuti/hapus/{{$value->id}}" class="btn btn-icon btn-danger delete" data-id="{{$value->id}}">
+                          <i class='bx bx-trash'></i>
+                          </a>
+                          @endif
+                          @if($value->approved == 'menunggu')
+                          <button type="submit" name="approved" value="batal" class="btn btn-icon btn-warning">
+                          <i class='bx bx-x'></i>
+                          </button>
+                          @endif
+                        </form>
                         </td>
                         </tr>
                     </tbody>

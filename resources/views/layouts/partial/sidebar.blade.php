@@ -22,18 +22,11 @@
               <div data-i18n="Basic">Table User</div>
               </a>
             </li>
-            <li class="menu-item" style="">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class='bx bxs-cog menu-icon'></i>
-                <div data-i18n="Account Settings">Settings</div>
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item @if(Request::url() == route('struktur.index')) active @endif" id="side-struktur">
+            <li class="menu-item @if(Request::url() == route('struktur.index')) active @endif" id="side-struktur">
                   <a href="/struktur" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-table"></i>
                     <div data-i18n="Account">Organizational Structure</div>
                   </a>
-                </li>
-              </ul>
             </li> 
             <li class="menu-item @if(Request::url() == route('report.index')) active @endif" id="side-report">
               <a href="/report" class="menu-link">
@@ -74,8 +67,8 @@
               <div data-i18n="Basic">Approval Leave</div>
               </a>
             </li>
-            <li class="menu-item @if(Request::url() == route('report.index')) active @endif" id="side-report">
-              <a href="/report" class="menu-link">
+            <li class="menu-item @if(Request::url() == route('report.indexID',Auth::user()->employe_id)) active @endif" id="side-report">
+              <a href="/report/{{Auth::user()->employe_id}}" class="menu-link">
               <i class='bx bxs-report menu-icon'></i>
                 <div data-i18n="Basic">Report</div>
               </a>
@@ -107,8 +100,8 @@
               <div data-i18n="Basic">Employee Data</div>
               </a>
             </li>
-            <li class="menu-item @if(Request::url() == route('report.index')) active @endif" id="side-report">
-              <a href="/report" class="menu-link">
+            <li class="menu-item @if(Request::url() == route('report.indexID',Auth::user()->employe_id)) active @endif" id="side-report">
+              <a href="/report/{{Auth::user()->employe_id}}" class="menu-link">
               <i class='bx bxs-report menu-icon'></i>
                 <div data-i18n="Basic">Report</div>
               </a>

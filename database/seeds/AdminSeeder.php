@@ -29,7 +29,7 @@ class AdminSeeder extends Seeder
             'kota' => 'Cirebon',
             'email' =>'admin@renos.id',
             'tanggal_bergabung' => Date('Y-m-d'),
-            'gender' =>'laki-laki',
+            'gender' =>'Man',
             'job_position'=>'Manager',
             'tempat_kelahiran' =>'Cirebon',
             'alamat_ktp'=>'Cirebon',
@@ -57,7 +57,7 @@ class AdminSeeder extends Seeder
             'tanggal_bergabung' => Date('Y-m-d'),
             'attachment' => 'Apawe.jpg',
             'email' => 'user@renos.id',
-            'gender' =>'laki-laki',
+            'gender' =>'Man',
             'job_position'=>'Manager IT',
             'tempat_kelahiran' =>'Jakarta',
             'alamat_ktp'=>'Jakarta',
@@ -77,7 +77,7 @@ class AdminSeeder extends Seeder
             'alamat_tinggal_family'=>'Cirebon',
             'bpjs_family'=>'223466',
             'npwp_family'=>'223466',
-            'gender_family'=>'perempuan',
+            'gender_family'=>'Women',
             'attachment'=>'ktp.jpg'
 
         ]);
@@ -102,7 +102,7 @@ class AdminSeeder extends Seeder
             'alamat_tinggal_family'=>'Jakarta',
             'bpjs_family'=>'223444',
             'npwp_family'=>'223444',
-            'gender_family'=>'perempuan',
+            'gender_family'=>'Women',
             'attachment'=>'ktp.jpg'
 
         ]);

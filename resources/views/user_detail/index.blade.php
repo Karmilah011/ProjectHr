@@ -75,9 +75,9 @@
                           <div class="col-md-6 mb-0">
                           <label for="gender" class="form-label">Gender</label>
                           <select name="gender" id="gender" class="form-control">
-                            <option disabled selected>Gender</option>
-                            <option value="laki-laki">Laki-Laki</option>
-                            <option value="wanita">Wanita</option>
+                             <option value="{{ $userDetail->gender }}">{{ $userDetail->gender }}</option>
+                             <option value="man">Man</option>
+                             <option value="women">Women</option>
                           </select>
                         </div>
                           <div class="mb-3 col-md-6">
@@ -105,7 +105,12 @@
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="struktur_id" class="form-label">Organization</label>
-                            <input type="text" class="form-control" id="struktur_id" name="struktur_id" value="{{$userDetail->struktur_id}}" placeholder="">
+                            <!-- <input type="text" class="form-control" id="struktur_id" name="struktur_id" value="{{$userDetail->struktur_id}}" placeholder=""> -->
+                            <select name="struktur_id" class="form-control" id="struktur_id">
+                              @foreach($organization as $key => $value)
+                              <option value="{{$value->id}}">{{$value->namaorganisasi}}</option>
+                              @endforeach
+                            </select>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="" class="form-label">Join Date</label>
@@ -180,7 +185,7 @@
                     <!-- Account -->
                     <div class="card-body">
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
-                        <img src="{{asset('admin/assets/img/user.jpg')}}" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
+                        <img src="{{ Avatar::create(Auth::user()->name)->toBase64() }}" alt="user-avatar" class="d-block rounded" height="100" width="100" id="uploadedAvatar">
                       </div>
                     </div>
                     <hr class="my-0">

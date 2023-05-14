@@ -36,7 +36,20 @@ class StrukturController extends Controller
      */
     public function store(Request $request)
     {
-        Struktur::create($request->all());
+        $insert = [];
+        $insert['namaorganisasi'] = $request->namaorganisasi;
+        $insert['deskorganisasi'] = $request->deskorganisasi;
+        if (!isset($request->status_struktur)) {
+            $insert['status_struktur'] = 'non active';
+            // $request->status_struktur = 'non active';
+            // dd($request);
+        }else{  
+            $insert['status_struktur'] = $request->status_struktur;
+        }
+        if(!isset($request->topParent)){
+            $insert['parent'] = $request->parent;
+        }
+        Struktur::create($insert);
         return redirect('/struktur');
     }
 

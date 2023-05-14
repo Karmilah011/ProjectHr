@@ -6,6 +6,7 @@ use App\UserDetail;
 use Illuminate\Http\Request;
 use DB;
 use App\User;
+use App\Struktur;
 class UserDetailController extends Controller
 {
     /**
@@ -22,9 +23,11 @@ class UserDetailController extends Controller
                     ->leftjoin('family_types as b','a.id','=','b.user_family_id')
                     ->where('a.employe_id',$employeId)
                     ->get();  
-        // dd($userFamily[0]);
+        
+        $organization = Struktur::where('status_struktur','active')->get();
+        // dd($organization);
         // die;
-        return view('user_detail.index',compact('userDetail','userFamily'));
+        return view('user_detail.index',compact('userDetail','userFamily','organization'));
     }
 
     /**
